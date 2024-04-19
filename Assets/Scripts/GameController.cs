@@ -869,7 +869,9 @@ public class GameController : MonoBehaviour
 
     public void WaitForScannerStart() 
     {
+        
         waitingForScannerStart = true;
+      
     }
 
     // ********************************************************************** //
