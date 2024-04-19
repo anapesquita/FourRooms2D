@@ -1,18 +1,36 @@
 fileFormatVersion: 2
 guid: baf88ba1d42fa47b1a0f182431a5591f
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Yellow Bird Outlined Sep_0
-    21300002: Yellow Bird Outlined Sep_1
-    21300004: Yellow Bird Outlined Sep_2
-    21300006: Yellow Bird Outlined Sep_3
-    21300008: Yellow Bird Outlined Sep_4
-    21300010: Yellow Bird Outlined Sep_5
-    21300012: Yellow Bird Outlined Sep_6
-    21300014: Yellow Bird Outlined Sep_7
-    21300016: Yellow Bird Outlined Sep_8
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Yellow Bird Outlined Sep_0
+  - first:
+      213: 21300002
+    second: Yellow Bird Outlined Sep_1
+  - first:
+      213: 21300004
+    second: Yellow Bird Outlined Sep_2
+  - first:
+      213: 21300006
+    second: Yellow Bird Outlined Sep_3
+  - first:
+      213: 21300008
+    second: Yellow Bird Outlined Sep_4
+  - first:
+      213: 21300010
+    second: Yellow Bird Outlined Sep_5
+  - first:
+      213: 21300012
+    second: Yellow Bird Outlined Sep_6
+  - first:
+      213: 21300014
+    second: Yellow Bird Outlined Sep_7
+  - first:
+      213: 21300016
+    second: Yellow Bird Outlined Sep_8
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -29,9 +47,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -40,9 +61,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -63,11 +84,17 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -77,8 +104,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -88,8 +117,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -99,8 +130,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,8 +143,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -121,7 +156,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -141,6 +178,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6e4b44263031e41e180b3437bfb998fd
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -161,6 +199,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 090521571be74406dac8173b901cc7cb
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -181,6 +220,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1ef60edbf3c6e41529ffac98372dd502
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -201,6 +241,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 95cf77c0daa6244539ac4bd1e5a82518
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -221,6 +262,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 341648f2b5246432a9ee04ea5ea736b2
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -241,6 +283,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 22028574dd20447a6b14da08226ebf5f
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -261,6 +304,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 03461030e4cd549c38e306e9f97d57e8
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -281,6 +325,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4427326c33fe745d99fcc7644a02874d
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -301,6 +346,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e5f2f55a2167d4bbf8ca03f761cc3644
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -309,13 +355,24 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: eb9b4e56cc7944d71ba676039875ef6c
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+    secondaryTextures: []
+    nameFileIdTable:
+      Yellow Bird Outlined Sep_0: 21300000
+      Yellow Bird Outlined Sep_1: 21300002
+      Yellow Bird Outlined Sep_2: 21300004
+      Yellow Bird Outlined Sep_3: 21300006
+      Yellow Bird Outlined Sep_4: 21300008
+      Yellow Bird Outlined Sep_5: 21300010
+      Yellow Bird Outlined Sep_6: 21300012
+      Yellow Bird Outlined Sep_7: 21300014
+      Yellow Bird Outlined Sep_8: 21300016
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

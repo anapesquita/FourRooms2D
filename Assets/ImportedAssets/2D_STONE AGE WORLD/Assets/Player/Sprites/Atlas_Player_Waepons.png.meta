@@ -1,159 +1,456 @@
 fileFormatVersion: 2
 guid: 5675db4a4d8e12347911934eb7b196fd
-timeCreated: 1490447415
-licenseType: Store
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Wood_Club_0000
-    21300002: STUN_M_Human_0060
-    21300004: STUN_M_Human_0070
-    21300006: STUN_M_Human_0040
-    21300008: STUN_M_Human_0050
-    21300010: STUN_M_Human_0080
-    21300012: STUN_M_Human_0100
-    21300014: STUN_M_Human_0090
-    21300016: STUN_M_Human_0030
-    21300018: STUN_M_Human_0020
-    21300020: STUN_M_Human_0140
-    21300022: STUN_M_Human_0120
-    21300024: STUN_M_Human_0130
-    21300026: STUN_M_Human_0110
-    21300028: STUN_M_Human_0010
-    21300030: STUN_M_Human_0150
-    21300032: STUN_M_Human_0000
-    21300034: THROW_M_Human_0100
-    21300036: RUN_M_Human_0040
-    21300038: RUN_M_Human_0120
-    21300040: JUMP_M_Human_0120
-    21300042: THROW_M_Human_0110
-    21300044: JUMP_M_Human_0110
-    21300046: THROW_M_Human_0090
-    21300048: THROW_M_Human_0120
-    21300050: THROW_M_Human_0130
-    21300052: HIT_M_Human_0050
-    21300054: HIT_M_Human_0040
-    21300056: HIT_M_Human_0070
-    21300058: HIT_M_Human_0060
-    21300060: DEATH_M_Human_0060
-    21300062: ATTACK_M_Human_0040
-    21300064: DEATH_M_Human_0040
-    21300066: ATTACK_M_Human_0030
-    21300068: DEATH_M_Human_0050
-    21300070: HIT_M_Human_0080
-    21300072: JUMP_M_Human_0130
-    21300074: RUN_M_Human_0130
-    21300076: RUN_M_Human_0030
-    21300078: RUN_M_Human_0050
-    21300080: JUMP_M_Human_0100
-    21300082: HIT_M_Human_0100
-    21300084: HIT_M_Human_0090
-    21300086: HIT_M_Human_0120
-    21300088: HIT_M_Human_0110
-    21300090: WALK_M_Human_0130
-    21300092: WALK_M_Human_0050
-    21300094: HIT_M_Human_0030
-    21300096: JUMP_M_Human_0140
-    21300098: WALK_M_Human_0120
-    21300100: THROW_M_Human_0150
-    21300102: WALK_M_Human_0140
-    21300104: WALK_M_Human_0030
-    21300106: DEATH_M_Human_0030
-    21300108: WALK_M_Human_0060
-    21300110: HIT_M_Human_0130
-    21300112: WALK_M_Human_0040
-    21300114: WALK_M_Human_0110
-    21300116: JUMP_M_Human_0020
-    21300118: THROW_M_Human_0080
-    21300120: THROW_M_Human_0140
-    21300122: RUN_M_Human_0140
-    21300124: THROW_M_Human_0020
-    21300126: RUN_M_Human_0110
-    21300128: IDLE_M_Human_0140
-    21300130: WALK_M_Human_0070
-    21300132: ATTACK_M_Human_0150
-    21300134: JUMP_M_Human_0010
-    21300136: WALK_M_Human_0100
-    21300138: WALK_M_Human_0090
-    21300140: HIT_M_Human_0150
-    21300142: THROW_M_Human_0010
-    21300144: WALK_M_Human_0150
-    21300146: DEATH_M_Human_0150
-    21300148: HIT_M_Human_0140
-    21300150: DEATH_M_Human_0010
-    21300152: DEATH_M_Human_0020
-    21300154: IDLE_M_Human_0020
-    21300156: WALK_M_Human_0020
-    21300158: ATTACK_M_Human_0020
-    21300160: THROW_M_Human_0060
-    21300162: WALK_M_Human_0010
-    21300164: ATTACK_M_Human_0050
-    21300166: ATTACK_M_Human_0060
-    21300168: HIT_M_Human_0010
-    21300170: HIT_M_Human_0020
-    21300172: JUMP_M_Human_0090
-    21300174: RUN_M_Human_0020
-    21300176: IDLE_M_Human_0000
-    21300178: IDLE_M_Human_0010
-    21300180: THROW_M_Human_0000
-    21300182: JUMP_M_Human_0150
-    21300184: JUMP_M_Human_0030
-    21300186: HIT_M_Human_0000
-    21300188: ATTACK_M_Human_0000
-    21300190: JUMP_M_Human_0080
-    21300192: ATTACK_M_Human_0010
-    21300194: THROW_M_Human_0070
-    21300196: DEATH_M_Human_0000
-    21300198: JUMP_M_Human_0000
-    21300200: IDLE_M_Human_0150
-    21300202: WALK_M_Human_0080
-    21300204: RUN_M_Human_0060
-    21300206: RUN_M_Human_0070
-    21300208: WALK_M_Human_0000
-    21300210: ATTACK_M_Human_0070
-    21300212: ATTACK_M_Human_0140
-    21300214: THROW_M_Human_0030
-    21300216: IDLE_M_Human_0030
-    21300218: RUN_M_Human_0150
-    21300220: IDLE_M_Human_0130
-    21300222: Hammer_Double_0000
-    21300224: Hammer_0000
-    21300226: DEATH_M_Human_0070
-    21300228: ATTACK_M_Human_0130
-    21300230: ATTACK_M_Human_0080
-    21300232: ATTACK_M_Human_0090
-    21300234: JUMP_M_Human_0040
-    21300236: JUMP_M_Human_0050
-    21300238: IDLE_M_Human_0120
-    21300240: IDLE_M_Human_0100
-    21300242: IDLE_M_Human_0110
-    21300244: THROW_M_Human_0050
-    21300246: THROW_M_Human_0040
-    21300248: RUN_M_Human_0100
-    21300250: JUMP_M_Human_0060
-    21300252: RUN_M_Human_0010
-    21300254: IDLE_M_Human_0060
-    21300256: IDLE_M_Human_0050
-    21300258: IDLE_M_Human_0040
-    21300260: ATTACK_M_Human_0100
-    21300262: ATTACK_M_Human_0110
-    21300264: ATTACK_M_Human_0120
-    21300266: JUMP_M_Human_0070
-    21300268: DEATH_M_Human_0140
-    21300270: RUN_M_Human_0000
-    21300272: IDLE_M_Human_0090
-    21300274: IDLE_M_Human_0070
-    21300276: IDLE_M_Human_0080
-    21300278: RUN_M_Human_0090
-    21300280: DEATH_M_Human_0130
-    21300282: RUN_M_Human_0080
-    21300284: AXE_0000
-    21300286: DEATH_M_Human_0120
-    21300288: DEATH_M_Human_0080
-    21300290: DEATH_M_Human_0110
-    21300292: DEATH_M_Human_0100
-    21300294: DEATH_M_Human_0090
-    21300296: STONE_0000
-  serializedVersion: 4
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Wood_Club_0000
+  - first:
+      213: 21300002
+    second: STUN_M_Human_0060
+  - first:
+      213: 21300004
+    second: STUN_M_Human_0070
+  - first:
+      213: 21300006
+    second: STUN_M_Human_0040
+  - first:
+      213: 21300008
+    second: STUN_M_Human_0050
+  - first:
+      213: 21300010
+    second: STUN_M_Human_0080
+  - first:
+      213: 21300012
+    second: STUN_M_Human_0100
+  - first:
+      213: 21300014
+    second: STUN_M_Human_0090
+  - first:
+      213: 21300016
+    second: STUN_M_Human_0030
+  - first:
+      213: 21300018
+    second: STUN_M_Human_0020
+  - first:
+      213: 21300020
+    second: STUN_M_Human_0140
+  - first:
+      213: 21300022
+    second: STUN_M_Human_0120
+  - first:
+      213: 21300024
+    second: STUN_M_Human_0130
+  - first:
+      213: 21300026
+    second: STUN_M_Human_0110
+  - first:
+      213: 21300028
+    second: STUN_M_Human_0010
+  - first:
+      213: 21300030
+    second: STUN_M_Human_0150
+  - first:
+      213: 21300032
+    second: STUN_M_Human_0000
+  - first:
+      213: 21300034
+    second: THROW_M_Human_0100
+  - first:
+      213: 21300036
+    second: RUN_M_Human_0040
+  - first:
+      213: 21300038
+    second: RUN_M_Human_0120
+  - first:
+      213: 21300040
+    second: JUMP_M_Human_0120
+  - first:
+      213: 21300042
+    second: THROW_M_Human_0110
+  - first:
+      213: 21300044
+    second: JUMP_M_Human_0110
+  - first:
+      213: 21300046
+    second: THROW_M_Human_0090
+  - first:
+      213: 21300048
+    second: THROW_M_Human_0120
+  - first:
+      213: 21300050
+    second: THROW_M_Human_0130
+  - first:
+      213: 21300052
+    second: HIT_M_Human_0050
+  - first:
+      213: 21300054
+    second: HIT_M_Human_0040
+  - first:
+      213: 21300056
+    second: HIT_M_Human_0070
+  - first:
+      213: 21300058
+    second: HIT_M_Human_0060
+  - first:
+      213: 21300060
+    second: DEATH_M_Human_0060
+  - first:
+      213: 21300062
+    second: ATTACK_M_Human_0040
+  - first:
+      213: 21300064
+    second: DEATH_M_Human_0040
+  - first:
+      213: 21300066
+    second: ATTACK_M_Human_0030
+  - first:
+      213: 21300068
+    second: DEATH_M_Human_0050
+  - first:
+      213: 21300070
+    second: HIT_M_Human_0080
+  - first:
+      213: 21300072
+    second: JUMP_M_Human_0130
+  - first:
+      213: 21300074
+    second: RUN_M_Human_0130
+  - first:
+      213: 21300076
+    second: RUN_M_Human_0030
+  - first:
+      213: 21300078
+    second: RUN_M_Human_0050
+  - first:
+      213: 21300080
+    second: JUMP_M_Human_0100
+  - first:
+      213: 21300082
+    second: HIT_M_Human_0100
+  - first:
+      213: 21300084
+    second: HIT_M_Human_0090
+  - first:
+      213: 21300086
+    second: HIT_M_Human_0120
+  - first:
+      213: 21300088
+    second: HIT_M_Human_0110
+  - first:
+      213: 21300090
+    second: WALK_M_Human_0130
+  - first:
+      213: 21300092
+    second: WALK_M_Human_0050
+  - first:
+      213: 21300094
+    second: HIT_M_Human_0030
+  - first:
+      213: 21300096
+    second: JUMP_M_Human_0140
+  - first:
+      213: 21300098
+    second: WALK_M_Human_0120
+  - first:
+      213: 21300100
+    second: THROW_M_Human_0150
+  - first:
+      213: 21300102
+    second: WALK_M_Human_0140
+  - first:
+      213: 21300104
+    second: WALK_M_Human_0030
+  - first:
+      213: 21300106
+    second: DEATH_M_Human_0030
+  - first:
+      213: 21300108
+    second: WALK_M_Human_0060
+  - first:
+      213: 21300110
+    second: HIT_M_Human_0130
+  - first:
+      213: 21300112
+    second: WALK_M_Human_0040
+  - first:
+      213: 21300114
+    second: WALK_M_Human_0110
+  - first:
+      213: 21300116
+    second: JUMP_M_Human_0020
+  - first:
+      213: 21300118
+    second: THROW_M_Human_0080
+  - first:
+      213: 21300120
+    second: THROW_M_Human_0140
+  - first:
+      213: 21300122
+    second: RUN_M_Human_0140
+  - first:
+      213: 21300124
+    second: THROW_M_Human_0020
+  - first:
+      213: 21300126
+    second: RUN_M_Human_0110
+  - first:
+      213: 21300128
+    second: IDLE_M_Human_0140
+  - first:
+      213: 21300130
+    second: WALK_M_Human_0070
+  - first:
+      213: 21300132
+    second: ATTACK_M_Human_0150
+  - first:
+      213: 21300134
+    second: JUMP_M_Human_0010
+  - first:
+      213: 21300136
+    second: WALK_M_Human_0100
+  - first:
+      213: 21300138
+    second: WALK_M_Human_0090
+  - first:
+      213: 21300140
+    second: HIT_M_Human_0150
+  - first:
+      213: 21300142
+    second: THROW_M_Human_0010
+  - first:
+      213: 21300144
+    second: WALK_M_Human_0150
+  - first:
+      213: 21300146
+    second: DEATH_M_Human_0150
+  - first:
+      213: 21300148
+    second: HIT_M_Human_0140
+  - first:
+      213: 21300150
+    second: DEATH_M_Human_0010
+  - first:
+      213: 21300152
+    second: DEATH_M_Human_0020
+  - first:
+      213: 21300154
+    second: IDLE_M_Human_0020
+  - first:
+      213: 21300156
+    second: WALK_M_Human_0020
+  - first:
+      213: 21300158
+    second: ATTACK_M_Human_0020
+  - first:
+      213: 21300160
+    second: THROW_M_Human_0060
+  - first:
+      213: 21300162
+    second: WALK_M_Human_0010
+  - first:
+      213: 21300164
+    second: ATTACK_M_Human_0050
+  - first:
+      213: 21300166
+    second: ATTACK_M_Human_0060
+  - first:
+      213: 21300168
+    second: HIT_M_Human_0010
+  - first:
+      213: 21300170
+    second: HIT_M_Human_0020
+  - first:
+      213: 21300172
+    second: JUMP_M_Human_0090
+  - first:
+      213: 21300174
+    second: RUN_M_Human_0020
+  - first:
+      213: 21300176
+    second: IDLE_M_Human_0000
+  - first:
+      213: 21300178
+    second: IDLE_M_Human_0010
+  - first:
+      213: 21300180
+    second: THROW_M_Human_0000
+  - first:
+      213: 21300182
+    second: JUMP_M_Human_0150
+  - first:
+      213: 21300184
+    second: JUMP_M_Human_0030
+  - first:
+      213: 21300186
+    second: HIT_M_Human_0000
+  - first:
+      213: 21300188
+    second: ATTACK_M_Human_0000
+  - first:
+      213: 21300190
+    second: JUMP_M_Human_0080
+  - first:
+      213: 21300192
+    second: ATTACK_M_Human_0010
+  - first:
+      213: 21300194
+    second: THROW_M_Human_0070
+  - first:
+      213: 21300196
+    second: DEATH_M_Human_0000
+  - first:
+      213: 21300198
+    second: JUMP_M_Human_0000
+  - first:
+      213: 21300200
+    second: IDLE_M_Human_0150
+  - first:
+      213: 21300202
+    second: WALK_M_Human_0080
+  - first:
+      213: 21300204
+    second: RUN_M_Human_0060
+  - first:
+      213: 21300206
+    second: RUN_M_Human_0070
+  - first:
+      213: 21300208
+    second: WALK_M_Human_0000
+  - first:
+      213: 21300210
+    second: ATTACK_M_Human_0070
+  - first:
+      213: 21300212
+    second: ATTACK_M_Human_0140
+  - first:
+      213: 21300214
+    second: THROW_M_Human_0030
+  - first:
+      213: 21300216
+    second: IDLE_M_Human_0030
+  - first:
+      213: 21300218
+    second: RUN_M_Human_0150
+  - first:
+      213: 21300220
+    second: IDLE_M_Human_0130
+  - first:
+      213: 21300222
+    second: Hammer_Double_0000
+  - first:
+      213: 21300224
+    second: Hammer_0000
+  - first:
+      213: 21300226
+    second: DEATH_M_Human_0070
+  - first:
+      213: 21300228
+    second: ATTACK_M_Human_0130
+  - first:
+      213: 21300230
+    second: ATTACK_M_Human_0080
+  - first:
+      213: 21300232
+    second: ATTACK_M_Human_0090
+  - first:
+      213: 21300234
+    second: JUMP_M_Human_0040
+  - first:
+      213: 21300236
+    second: JUMP_M_Human_0050
+  - first:
+      213: 21300238
+    second: IDLE_M_Human_0120
+  - first:
+      213: 21300240
+    second: IDLE_M_Human_0100
+  - first:
+      213: 21300242
+    second: IDLE_M_Human_0110
+  - first:
+      213: 21300244
+    second: THROW_M_Human_0050
+  - first:
+      213: 21300246
+    second: THROW_M_Human_0040
+  - first:
+      213: 21300248
+    second: RUN_M_Human_0100
+  - first:
+      213: 21300250
+    second: JUMP_M_Human_0060
+  - first:
+      213: 21300252
+    second: RUN_M_Human_0010
+  - first:
+      213: 21300254
+    second: IDLE_M_Human_0060
+  - first:
+      213: 21300256
+    second: IDLE_M_Human_0050
+  - first:
+      213: 21300258
+    second: IDLE_M_Human_0040
+  - first:
+      213: 21300260
+    second: ATTACK_M_Human_0100
+  - first:
+      213: 21300262
+    second: ATTACK_M_Human_0110
+  - first:
+      213: 21300264
+    second: ATTACK_M_Human_0120
+  - first:
+      213: 21300266
+    second: JUMP_M_Human_0070
+  - first:
+      213: 21300268
+    second: DEATH_M_Human_0140
+  - first:
+      213: 21300270
+    second: RUN_M_Human_0000
+  - first:
+      213: 21300272
+    second: IDLE_M_Human_0090
+  - first:
+      213: 21300274
+    second: IDLE_M_Human_0070
+  - first:
+      213: 21300276
+    second: IDLE_M_Human_0080
+  - first:
+      213: 21300278
+    second: RUN_M_Human_0090
+  - first:
+      213: 21300280
+    second: DEATH_M_Human_0130
+  - first:
+      213: 21300282
+    second: RUN_M_Human_0080
+  - first:
+      213: 21300284
+    second: AXE_0000
+  - first:
+      213: 21300286
+    second: DEATH_M_Human_0120
+  - first:
+      213: 21300288
+    second: DEATH_M_Human_0080
+  - first:
+      213: 21300290
+    second: DEATH_M_Human_0110
+  - first:
+      213: 21300292
+    second: DEATH_M_Human_0100
+  - first:
+      213: 21300294
+    second: DEATH_M_Human_0090
+  - first:
+      213: 21300296
+    second: STONE_0000
+  externalObjects: {}
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -161,6 +458,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -168,7 +467,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -176,10 +480,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
-    wrapMode: 1
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -188,41 +495,64 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -238,7 +568,15 @@ TextureImporter:
       pivot: {x: 0.59322035, y: 0.50248754}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0060
       rect:
@@ -251,7 +589,15 @@ TextureImporter:
       pivot: {x: 0.5504587, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0070
       rect:
@@ -264,7 +610,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.60301507}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0040
       rect:
@@ -277,7 +631,15 @@ TextureImporter:
       pivot: {x: 0.5663717, y: 0.60301507}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0050
       rect:
@@ -290,7 +652,15 @@ TextureImporter:
       pivot: {x: 0.55454546, y: 0.60301507}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0080
       rect:
@@ -303,7 +673,15 @@ TextureImporter:
       pivot: {x: 0.5294118, y: 0.6060606}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0100
       rect:
@@ -316,7 +694,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.60913706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0090
       rect:
@@ -329,7 +715,15 @@ TextureImporter:
       pivot: {x: 0.5151515, y: 0.60913706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0030
       rect:
@@ -342,7 +736,15 @@ TextureImporter:
       pivot: {x: 0.55454546, y: 0.60913706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0020
       rect:
@@ -355,7 +757,15 @@ TextureImporter:
       pivot: {x: 0.5420561, y: 0.6122449}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0140
       rect:
@@ -368,7 +778,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6122449}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0120
       rect:
@@ -381,7 +799,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.61538464}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0130
       rect:
@@ -394,7 +820,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.61538464}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0110
       rect:
@@ -407,7 +841,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.61538464}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0010
       rect:
@@ -420,7 +862,15 @@ TextureImporter:
       pivot: {x: 0.52427185, y: 0.6185567}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0150
       rect:
@@ -433,7 +883,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.6185567}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STUN_M_Human_0000
       rect:
@@ -446,7 +904,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.6217617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0100
       rect:
@@ -459,7 +925,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.64021164}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0040
       rect:
@@ -472,7 +946,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.63829786}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0120
       rect:
@@ -485,7 +967,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.63829786}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0120
       rect:
@@ -498,7 +988,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.64705884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0110
       rect:
@@ -511,7 +1009,15 @@ TextureImporter:
       pivot: {x: 0.5045872, y: 0.64705884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0110
       rect:
@@ -524,7 +1030,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.64171124}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0090
       rect:
@@ -537,7 +1051,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.64705884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0120
       rect:
@@ -550,7 +1072,15 @@ TextureImporter:
       pivot: {x: 0.49056605, y: 0.6524064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0130
       rect:
@@ -563,7 +1093,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6524064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0050
       rect:
@@ -576,7 +1114,15 @@ TextureImporter:
       pivot: {x: 0.6, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0040
       rect:
@@ -589,7 +1135,15 @@ TextureImporter:
       pivot: {x: 0.5769231, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0070
       rect:
@@ -602,7 +1156,15 @@ TextureImporter:
       pivot: {x: 0.64912283, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0060
       rect:
@@ -615,7 +1177,15 @@ TextureImporter:
       pivot: {x: 0.6363636, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0060
       rect:
@@ -628,7 +1198,15 @@ TextureImporter:
       pivot: {x: 0.6551724, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0040
       rect:
@@ -641,7 +1219,15 @@ TextureImporter:
       pivot: {x: 0.46666667, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0040
       rect:
@@ -654,7 +1240,15 @@ TextureImporter:
       pivot: {x: 0.60194176, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0030
       rect:
@@ -667,7 +1261,15 @@ TextureImporter:
       pivot: {x: 0.49019608, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0050
       rect:
@@ -680,7 +1282,15 @@ TextureImporter:
       pivot: {x: 0.6330275, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0080
       rect:
@@ -693,7 +1303,15 @@ TextureImporter:
       pivot: {x: 0.6551724, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0130
       rect:
@@ -706,7 +1324,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0130
       rect:
@@ -719,7 +1345,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6451613}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0030
       rect:
@@ -732,7 +1366,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6451613}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0050
       rect:
@@ -745,7 +1387,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0100
       rect:
@@ -758,7 +1408,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.63978493}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0100
       rect:
@@ -771,7 +1429,15 @@ TextureImporter:
       pivot: {x: 0.6363636, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0090
       rect:
@@ -784,7 +1450,15 @@ TextureImporter:
       pivot: {x: 0.64912283, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0120
       rect:
@@ -797,7 +1471,15 @@ TextureImporter:
       pivot: {x: 0.5769231, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0110
       rect:
@@ -810,7 +1492,15 @@ TextureImporter:
       pivot: {x: 0.6, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0130
       rect:
@@ -823,7 +1513,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0050
       rect:
@@ -836,7 +1534,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6505376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0030
       rect:
@@ -849,7 +1555,15 @@ TextureImporter:
       pivot: {x: 0.54, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0140
       rect:
@@ -862,7 +1576,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0120
       rect:
@@ -875,7 +1597,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0150
       rect:
@@ -888,7 +1618,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0140
       rect:
@@ -901,7 +1639,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0030
       rect:
@@ -914,7 +1660,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0030
       rect:
@@ -927,7 +1681,15 @@ TextureImporter:
       pivot: {x: 0.56, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0060
       rect:
@@ -940,7 +1702,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0130
       rect:
@@ -953,7 +1723,15 @@ TextureImporter:
       pivot: {x: 0.54, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0040
       rect:
@@ -966,7 +1744,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0110
       rect:
@@ -979,7 +1765,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0020
       rect:
@@ -992,7 +1786,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0080
       rect:
@@ -1005,7 +1807,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0140
       rect:
@@ -1018,7 +1828,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0140
       rect:
@@ -1031,7 +1849,15 @@ TextureImporter:
       pivot: {x: 0.5148515, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0020
       rect:
@@ -1044,7 +1870,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65405405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0110
       rect:
@@ -1057,7 +1891,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6486486}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0140
       rect:
@@ -1070,7 +1912,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0070
       rect:
@@ -1083,7 +1933,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0150
       rect:
@@ -1096,7 +1954,15 @@ TextureImporter:
       pivot: {x: 0.48979592, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0010
       rect:
@@ -1109,7 +1975,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6576087}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0100
       rect:
@@ -1122,7 +1996,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0090
       rect:
@@ -1135,7 +2017,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0150
       rect:
@@ -1148,7 +2038,15 @@ TextureImporter:
       pivot: {x: 0.5102041, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0010
       rect:
@@ -1161,7 +2059,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0150
       rect:
@@ -1174,7 +2080,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0150
       rect:
@@ -1187,7 +2101,15 @@ TextureImporter:
       pivot: {x: 0.6956522, y: 1.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0140
       rect:
@@ -1200,7 +2122,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0010
       rect:
@@ -1213,7 +2143,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0020
       rect:
@@ -1226,7 +2164,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0020
       rect:
@@ -1239,7 +2185,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0020
       rect:
@@ -1252,7 +2206,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0020
       rect:
@@ -1265,7 +2227,15 @@ TextureImporter:
       pivot: {x: 0.48514852, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0060
       rect:
@@ -1278,7 +2248,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0010
       rect:
@@ -1291,7 +2269,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0050
       rect:
@@ -1304,7 +2290,15 @@ TextureImporter:
       pivot: {x: 0.4509804, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0060
       rect:
@@ -1317,7 +2311,15 @@ TextureImporter:
       pivot: {x: 0.43564355, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0010
       rect:
@@ -1330,7 +2332,15 @@ TextureImporter:
       pivot: {x: 0.5102041, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0020
       rect:
@@ -1343,7 +2353,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65217394}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0090
       rect:
@@ -1356,7 +2374,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.63586956}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0020
       rect:
@@ -1369,7 +2395,15 @@ TextureImporter:
       pivot: {x: 0.53333336, y: 0.64480877}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0000
       rect:
@@ -1382,7 +2416,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0010
       rect:
@@ -1395,7 +2437,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0000
       rect:
@@ -1408,7 +2458,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0150
       rect:
@@ -1421,7 +2479,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0030
       rect:
@@ -1434,7 +2500,15 @@ TextureImporter:
       pivot: {x: 0.5148515, y: 0.6612022}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: HIT_M_Human_0000
       rect:
@@ -1447,7 +2521,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0000
       rect:
@@ -1460,7 +2542,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0080
       rect:
@@ -1473,7 +2563,15 @@ TextureImporter:
       pivot: {x: 0.5247525, y: 0.6284153}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0010
       rect:
@@ -1486,7 +2584,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0070
       rect:
@@ -1499,7 +2605,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0000
       rect:
@@ -1512,7 +2626,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0000
       rect:
@@ -1525,7 +2647,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0150
       rect:
@@ -1538,7 +2668,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6557377}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0080
       rect:
@@ -1551,7 +2689,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65384614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0060
       rect:
@@ -1564,7 +2710,15 @@ TextureImporter:
       pivot: {x: 0.52, y: 0.65384614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0070
       rect:
@@ -1577,7 +2731,15 @@ TextureImporter:
       pivot: {x: 0.5555556, y: 0.6593407}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WALK_M_Human_0000
       rect:
@@ -1590,7 +2752,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.65384614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0070
       rect:
@@ -1603,7 +2773,15 @@ TextureImporter:
       pivot: {x: 0.42307693, y: 0.6593407}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0140
       rect:
@@ -1616,7 +2794,15 @@ TextureImporter:
       pivot: {x: 0.46666667, y: 0.66483516}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4f305410000000000800000000000000
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0030
       rect:
@@ -1629,7 +2815,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.66483516}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6f305410000000000800000000000000
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0030
       rect:
@@ -1642,7 +2836,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6593407}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8f305410000000000800000000000000
+      internalID: 21300216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0150
       rect:
@@ -1655,7 +2857,15 @@ TextureImporter:
       pivot: {x: 0.5504587, y: 0.64285713}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: af305410000000000800000000000000
+      internalID: 21300218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0130
       rect:
@@ -1668,7 +2878,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6593407}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cf305410000000000800000000000000
+      internalID: 21300220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Hammer_Double_0000
       rect:
@@ -1681,7 +2899,15 @@ TextureImporter:
       pivot: {x: 0.3809524, y: 0.5801105}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ef305410000000000800000000000000
+      internalID: 21300222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Hammer_0000
       rect:
@@ -1694,7 +2920,15 @@ TextureImporter:
       pivot: {x: 0.48235294, y: 0.5801105}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 00405410000000000800000000000000
+      internalID: 21300224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0070
       rect:
@@ -1707,7 +2941,15 @@ TextureImporter:
       pivot: {x: 0.68503934, y: 0.6519337}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 20405410000000000800000000000000
+      internalID: 21300226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0130
       rect:
@@ -1720,7 +2962,15 @@ TextureImporter:
       pivot: {x: 0.47826087, y: 0.6685083}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 40405410000000000800000000000000
+      internalID: 21300228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0080
       rect:
@@ -1733,7 +2983,15 @@ TextureImporter:
       pivot: {x: 0.43925235, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 60405410000000000800000000000000
+      internalID: 21300230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0090
       rect:
@@ -1746,7 +3004,15 @@ TextureImporter:
       pivot: {x: 0.45454547, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 80405410000000000800000000000000
+      internalID: 21300232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0040
       rect:
@@ -1759,7 +3025,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a0405410000000000800000000000000
+      internalID: 21300234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0050
       rect:
@@ -1772,7 +3046,15 @@ TextureImporter:
       pivot: {x: 0.5339806, y: 0.65745854}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c0405410000000000800000000000000
+      internalID: 21300236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0120
       rect:
@@ -1785,7 +3067,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e0405410000000000800000000000000
+      internalID: 21300238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0100
       rect:
@@ -1798,7 +3088,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 01405410000000000800000000000000
+      internalID: 21300240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0110
       rect:
@@ -1811,7 +3109,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 21405410000000000800000000000000
+      internalID: 21300242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0050
       rect:
@@ -1824,7 +3130,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 41405410000000000800000000000000
+      internalID: 21300244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: THROW_M_Human_0040
       rect:
@@ -1837,7 +3151,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 61405410000000000800000000000000
+      internalID: 21300246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0100
       rect:
@@ -1850,7 +3172,15 @@ TextureImporter:
       pivot: {x: 0.53846157, y: 0.6519337}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 81405410000000000800000000000000
+      internalID: 21300248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0060
       rect:
@@ -1863,7 +3193,15 @@ TextureImporter:
       pivot: {x: 0.5339806, y: 0.64640886}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a1405410000000000800000000000000
+      internalID: 21300250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0010
       rect:
@@ -1876,7 +3214,15 @@ TextureImporter:
       pivot: {x: 0.55454546, y: 0.640884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c1405410000000000800000000000000
+      internalID: 21300252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0060
       rect:
@@ -1889,7 +3235,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e1405410000000000800000000000000
+      internalID: 21300254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0050
       rect:
@@ -1902,7 +3256,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02405410000000000800000000000000
+      internalID: 21300256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0040
       rect:
@@ -1915,7 +3277,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6629834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22405410000000000800000000000000
+      internalID: 21300258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0100
       rect:
@@ -1928,7 +3298,15 @@ TextureImporter:
       pivot: {x: 0.47368422, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42405410000000000800000000000000
+      internalID: 21300260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0110
       rect:
@@ -1941,7 +3319,15 @@ TextureImporter:
       pivot: {x: 0.4871795, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62405410000000000800000000000000
+      internalID: 21300262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ATTACK_M_Human_0120
       rect:
@@ -1954,7 +3340,15 @@ TextureImporter:
       pivot: {x: 0.4915254, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82405410000000000800000000000000
+      internalID: 21300264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: JUMP_M_Human_0070
       rect:
@@ -1967,7 +3361,15 @@ TextureImporter:
       pivot: {x: 0.5339806, y: 0.6388889}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2405410000000000800000000000000
+      internalID: 21300266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0140
       rect:
@@ -1980,7 +3382,15 @@ TextureImporter:
       pivot: {x: 0.7111111, y: 1.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2405410000000000800000000000000
+      internalID: 21300268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0000
       rect:
@@ -1993,7 +3403,15 @@ TextureImporter:
       pivot: {x: 0.5625, y: 0.64444447}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2405410000000000800000000000000
+      internalID: 21300270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0090
       rect:
@@ -2006,7 +3424,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03405410000000000800000000000000
+      internalID: 21300272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0070
       rect:
@@ -2019,7 +3445,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23405410000000000800000000000000
+      internalID: 21300274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: IDLE_M_Human_0080
       rect:
@@ -2032,7 +3466,15 @@ TextureImporter:
       pivot: {x: 0.5051546, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 43405410000000000800000000000000
+      internalID: 21300276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0090
       rect:
@@ -2045,7 +3487,15 @@ TextureImporter:
       pivot: {x: 0.559633, y: 0.6516854}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 63405410000000000800000000000000
+      internalID: 21300278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0130
       rect:
@@ -2058,7 +3508,15 @@ TextureImporter:
       pivot: {x: 0.71910113, y: 1.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 83405410000000000800000000000000
+      internalID: 21300280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: RUN_M_Human_0080
       rect:
@@ -2071,7 +3529,15 @@ TextureImporter:
       pivot: {x: 0.5675676, y: 0.65536726}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a3405410000000000800000000000000
+      internalID: 21300282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: AXE_0000
       rect:
@@ -2084,7 +3550,15 @@ TextureImporter:
       pivot: {x: 0.43010753, y: 0.5681818}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c3405410000000000800000000000000
+      internalID: 21300284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0120
       rect:
@@ -2097,7 +3571,15 @@ TextureImporter:
       pivot: {x: 0.72727275, y: 1.0833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e3405410000000000800000000000000
+      internalID: 21300286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0080
       rect:
@@ -2110,7 +3592,15 @@ TextureImporter:
       pivot: {x: 0.7222222, y: 0.62285715}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 04405410000000000800000000000000
+      internalID: 21300288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0110
       rect:
@@ -2123,7 +3613,15 @@ TextureImporter:
       pivot: {x: 0.74418604, y: 0.75213677}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 24405410000000000800000000000000
+      internalID: 21300290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0100
       rect:
@@ -2136,7 +3634,15 @@ TextureImporter:
       pivot: {x: 0.74846625, y: 0.62676054}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 44405410000000000800000000000000
+      internalID: 21300292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DEATH_M_Human_0090
       rect:
@@ -2149,7 +3655,15 @@ TextureImporter:
       pivot: {x: 0.7548387, y: 0.6163522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 64405410000000000800000000000000
+      internalID: 21300294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: STONE_0000
       rect:
@@ -2162,9 +3676,177 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.46666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 84405410000000000800000000000000
+      internalID: 21300296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
-  spritePackingTag: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ATTACK_M_Human_0000: 21300188
+      ATTACK_M_Human_0010: 21300192
+      ATTACK_M_Human_0020: 21300158
+      ATTACK_M_Human_0030: 21300066
+      ATTACK_M_Human_0040: 21300062
+      ATTACK_M_Human_0050: 21300164
+      ATTACK_M_Human_0060: 21300166
+      ATTACK_M_Human_0070: 21300210
+      ATTACK_M_Human_0080: 21300230
+      ATTACK_M_Human_0090: 21300232
+      ATTACK_M_Human_0100: 21300260
+      ATTACK_M_Human_0110: 21300262
+      ATTACK_M_Human_0120: 21300264
+      ATTACK_M_Human_0130: 21300228
+      ATTACK_M_Human_0140: 21300212
+      ATTACK_M_Human_0150: 21300132
+      AXE_0000: 21300284
+      DEATH_M_Human_0000: 21300196
+      DEATH_M_Human_0010: 21300150
+      DEATH_M_Human_0020: 21300152
+      DEATH_M_Human_0030: 21300106
+      DEATH_M_Human_0040: 21300064
+      DEATH_M_Human_0050: 21300068
+      DEATH_M_Human_0060: 21300060
+      DEATH_M_Human_0070: 21300226
+      DEATH_M_Human_0080: 21300288
+      DEATH_M_Human_0090: 21300294
+      DEATH_M_Human_0100: 21300292
+      DEATH_M_Human_0110: 21300290
+      DEATH_M_Human_0120: 21300286
+      DEATH_M_Human_0130: 21300280
+      DEATH_M_Human_0140: 21300268
+      DEATH_M_Human_0150: 21300146
+      HIT_M_Human_0000: 21300186
+      HIT_M_Human_0010: 21300168
+      HIT_M_Human_0020: 21300170
+      HIT_M_Human_0030: 21300094
+      HIT_M_Human_0040: 21300054
+      HIT_M_Human_0050: 21300052
+      HIT_M_Human_0060: 21300058
+      HIT_M_Human_0070: 21300056
+      HIT_M_Human_0080: 21300070
+      HIT_M_Human_0090: 21300084
+      HIT_M_Human_0100: 21300082
+      HIT_M_Human_0110: 21300088
+      HIT_M_Human_0120: 21300086
+      HIT_M_Human_0130: 21300110
+      HIT_M_Human_0140: 21300148
+      HIT_M_Human_0150: 21300140
+      Hammer_0000: 21300224
+      Hammer_Double_0000: 21300222
+      IDLE_M_Human_0000: 21300176
+      IDLE_M_Human_0010: 21300178
+      IDLE_M_Human_0020: 21300154
+      IDLE_M_Human_0030: 21300216
+      IDLE_M_Human_0040: 21300258
+      IDLE_M_Human_0050: 21300256
+      IDLE_M_Human_0060: 21300254
+      IDLE_M_Human_0070: 21300274
+      IDLE_M_Human_0080: 21300276
+      IDLE_M_Human_0090: 21300272
+      IDLE_M_Human_0100: 21300240
+      IDLE_M_Human_0110: 21300242
+      IDLE_M_Human_0120: 21300238
+      IDLE_M_Human_0130: 21300220
+      IDLE_M_Human_0140: 21300128
+      IDLE_M_Human_0150: 21300200
+      JUMP_M_Human_0000: 21300198
+      JUMP_M_Human_0010: 21300134
+      JUMP_M_Human_0020: 21300116
+      JUMP_M_Human_0030: 21300184
+      JUMP_M_Human_0040: 21300234
+      JUMP_M_Human_0050: 21300236
+      JUMP_M_Human_0060: 21300250
+      JUMP_M_Human_0070: 21300266
+      JUMP_M_Human_0080: 21300190
+      JUMP_M_Human_0090: 21300172
+      JUMP_M_Human_0100: 21300080
+      JUMP_M_Human_0110: 21300044
+      JUMP_M_Human_0120: 21300040
+      JUMP_M_Human_0130: 21300072
+      JUMP_M_Human_0140: 21300096
+      JUMP_M_Human_0150: 21300182
+      RUN_M_Human_0000: 21300270
+      RUN_M_Human_0010: 21300252
+      RUN_M_Human_0020: 21300174
+      RUN_M_Human_0030: 21300076
+      RUN_M_Human_0040: 21300036
+      RUN_M_Human_0050: 21300078
+      RUN_M_Human_0060: 21300204
+      RUN_M_Human_0070: 21300206
+      RUN_M_Human_0080: 21300282
+      RUN_M_Human_0090: 21300278
+      RUN_M_Human_0100: 21300248
+      RUN_M_Human_0110: 21300126
+      RUN_M_Human_0120: 21300038
+      RUN_M_Human_0130: 21300074
+      RUN_M_Human_0140: 21300122
+      RUN_M_Human_0150: 21300218
+      STONE_0000: 21300296
+      STUN_M_Human_0000: 21300032
+      STUN_M_Human_0010: 21300028
+      STUN_M_Human_0020: 21300018
+      STUN_M_Human_0030: 21300016
+      STUN_M_Human_0040: 21300006
+      STUN_M_Human_0050: 21300008
+      STUN_M_Human_0060: 21300002
+      STUN_M_Human_0070: 21300004
+      STUN_M_Human_0080: 21300010
+      STUN_M_Human_0090: 21300014
+      STUN_M_Human_0100: 21300012
+      STUN_M_Human_0110: 21300026
+      STUN_M_Human_0120: 21300022
+      STUN_M_Human_0130: 21300024
+      STUN_M_Human_0140: 21300020
+      STUN_M_Human_0150: 21300030
+      THROW_M_Human_0000: 21300180
+      THROW_M_Human_0010: 21300142
+      THROW_M_Human_0020: 21300124
+      THROW_M_Human_0030: 21300214
+      THROW_M_Human_0040: 21300246
+      THROW_M_Human_0050: 21300244
+      THROW_M_Human_0060: 21300160
+      THROW_M_Human_0070: 21300194
+      THROW_M_Human_0080: 21300118
+      THROW_M_Human_0090: 21300046
+      THROW_M_Human_0100: 21300034
+      THROW_M_Human_0110: 21300042
+      THROW_M_Human_0120: 21300048
+      THROW_M_Human_0130: 21300050
+      THROW_M_Human_0140: 21300120
+      THROW_M_Human_0150: 21300100
+      WALK_M_Human_0000: 21300208
+      WALK_M_Human_0010: 21300162
+      WALK_M_Human_0020: 21300156
+      WALK_M_Human_0030: 21300104
+      WALK_M_Human_0040: 21300112
+      WALK_M_Human_0050: 21300092
+      WALK_M_Human_0060: 21300108
+      WALK_M_Human_0070: 21300130
+      WALK_M_Human_0080: 21300202
+      WALK_M_Human_0090: 21300138
+      WALK_M_Human_0100: 21300136
+      WALK_M_Human_0110: 21300114
+      WALK_M_Human_0120: 21300098
+      WALK_M_Human_0130: 21300090
+      WALK_M_Human_0140: 21300102
+      WALK_M_Human_0150: 21300144
+      Wood_Club_0000: 21300000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
