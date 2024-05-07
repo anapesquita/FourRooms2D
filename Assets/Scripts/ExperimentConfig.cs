@@ -961,7 +961,10 @@ public class ExperimentConfig
         // H-C
         // C-H
         // And this will be balanced appropriately across trials
-        controlStateOrder[trial] = new string[2] { "Computer", "Human" };
+        // AP controlStateOrder[trial] = new string[2] { "Computer", "Human" };
+        // AP --
+        controlStateOrder[trial] = new string[2] { "Human", "Human" };
+        // -- AP
 
         // whether the agent chooses the closest correct or incorrect box (after searching in the first room)
         computerAgentCorrect[trial] = true;
@@ -1171,11 +1174,17 @@ public class ExperimentConfig
             if (blockLength % 2 == 0)    // ***HRS note that for these practice trials this wont be perfectly balanced, but they will get some experience with computer v human starting first
             {
                 controlType[0] = "Human";
-                controlType[1] = "Computer";
+                // AP controlType[1] = "Computer";
+                // AP --
+                controlType[1] = "Human";
+                // -- AP
             }
             else
             {
-                controlType[0] = "Computer";
+                // AP --
+                controlType[0] = "Human";
+                // -- AP
+                // AP controlType[0] = "Computer";
                 controlType[1] = "Human";
             }
             // Mark whether the computer control moves the agent to the correct or incorrect boulder
@@ -1258,11 +1267,17 @@ public class ExperimentConfig
             if (i < blockLength / 2) 
             {
                 controlType[0] = "Human";
-                controlType[1] = "Computer";
+                // AP --
+                controlType[1] = "Human";
+                // -- AP
+                //controlType[1] = "Computer";
             }
             else 
             {
-                controlType[0] = "Computer";
+                // AP --
+                controlType[0] = "Human";
+                // -- AP
+                // controlType[0] = "Computer";
                 controlType[1] = "Human";
             }
             // Mark whether the computer control moves the agent to the correct or incorrect boulder
