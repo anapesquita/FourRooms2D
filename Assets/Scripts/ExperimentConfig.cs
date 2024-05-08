@@ -127,7 +127,7 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
-        //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
+        experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_peanutmartini";
         //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";  
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
@@ -135,7 +135,7 @@ public class ExperimentConfig
         //experimentVersion = "scannertask_cheese";   // be careful with adding extra practice trials between scan runs though (dont have extra practice)
         //experimentVersion = "scannertask_peanut";   // HRS used for training on day1, so do not use for testing in scanner
         //experimentVersion = "scannertask_banana";
-        experimentVersion = "scannertask_avocado";
+        //experimentVersion = "scannertask_avocado";
         //experimentVersion = "mapping_practice";
         // ------------------------------------------
 

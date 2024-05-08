@@ -276,7 +276,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 26
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Before starting
+  m_Text: Welcome!
 --- !u!222 &241966163
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 26
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1152,7 +1152,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1163,20 +1163,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Before running the task, we will require you to read, understand and agree
-    with a consent form, and read carefully the guidelines describing what you will
-    have to do.\n\nAdditionally, we need to ask you to run the whole task in fullscreen
-    and focus exclusively on the task you are about to do. This is very important
-    - so please close all \"chat\" applications, games, etc. If you leave fullscreen
-    mode, the task will stop until fullscreen mode is returned to, and you will be
-    forced to restart the trial.  \n\nPlease ensure you have the sound on your computer
-    turned up, as you will need to respond to audio cues to perform the task.\n\nIf
-    the task is cancelled or you run into any technical issues, contact us at hiplab@psy.ox.ac.uk
-    and do not restart the task. This is important because it's a learning experiment,
-    and restarting the experiment may affect its outcome.\n\nIn general, if you have
-    any issues or questions, please put yourself in contact with hiplab@psy.ox.ac.uk
-    and let us know what happened. Don't forget to specify the task you are running
-    (see the title of this website)."
+  m_Text: "Before you begin, we want to assure you that the experimenter is readily
+    available to answer any questions you may have. \n\nPlease take the time to carefully
+    read the 'Information sheet' and 'Consent form' provided. \r\n\nIf you decide
+    to participate, please sign the 'Consent form' provided by the experimenter.
+    \r\n"
 --- !u!222 &1654966333
 CanvasRenderer:
   m_ObjectHideFlags: 0

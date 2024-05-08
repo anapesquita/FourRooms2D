@@ -14,7 +14,10 @@ public class ControlStateMessageScript : MonoBehaviour
     void Update()
     {
         // update the text gameobject's message in-line with the FSM
-        screenMessage.fontSize = 30;
+        // AP screenMessage.fontSize = 30;
+        // AP --
+        screenMessage.fontSize = 30 * 3;
+        // -- AP 
         screenMessage.text = controlStateMessage;
         controlState = GameController.control.controlState;
 
@@ -31,8 +34,11 @@ public class ControlStateMessageScript : MonoBehaviour
                 switch (controlState)
                 {
                     case GameController.CONTROL_HUMAN:
+                        //AP --
+                        controlStateMessage = "[Play]";
+                        // -- AP
                         //controlStateMessage = "[Your turn]";
-                        controlStateMessage = "[Du bist dran]";
+                        //controlStateMessage = "[Du bist dran]";
                         screenMessage.color = Color.green;
                         break;
                     case GameController.CONTROL_COMPUTER:

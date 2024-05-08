@@ -14,7 +14,10 @@ public class CelebrateBothRewardsHit : MonoBehaviour
         // When the total score updates make it flash cyan
         if (GameController.control.flashCongratulations)
         {
-            CelebratoryMessage.fontSize = 36;
+            //AP CelebratoryMessage.fontSize = 36;
+            //AP --
+            CelebratoryMessage.fontSize = 36*3;
+            //--AP
             CelebratoryMessage.color = Color.white;
             //CelebratoryMessage.text = "Well done!";
         }

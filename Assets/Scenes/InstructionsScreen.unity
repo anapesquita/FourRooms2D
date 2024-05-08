@@ -1454,7 +1454,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 26
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1465,7 +1465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Instructions
+  m_Text: Practice
 --- !u!222 &1579032544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1533,7 +1533,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 26
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1710,7 +1710,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1721,28 +1721,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Diese Version des Experimentes ist \xE4hnlich zu der die du gestern gesehen
-    hast. Der Unterschied zu gestern ist, dass der Computer heute manchmal dein Avatar
-    kontrollieren und einen Felsbrocken zum Hochheben ausw\xE4hlen wird. Du arbeitest
-    mit dem Computer zusammen und erh\xE4ltst Punkte daf\xFCr wie schnell du den
-    Durchlauf beendest. \r\rHier nochmal die Spielregeln:\r\n\n1.  Wir haben einige
-    Gegenst\xE4nde in einem Labyrinth hinterlassen. Sie sind unter Felsbrocken versteckt.\n\n2. 
-    In dem Labyrinth sind auch einige Felsbrocken, unter denen nichts versteckt ist.
-    Leider k\xF6nnen wir uns nicht mehr daran erinnern, unter welchen Felsbrocken
-    die Gegenst\xE4nde versteckt sind.\n\n3.  Sammle Punkte indem Du Felsbrocken
-    umdrehst, um versteckte Gegenst\xE4nde zu finden. \n\n4.  Benutze die Pfeiltasten,
-    um durch das Labyrinth zu navigieren und die Leertaste, um die Felsbrocken hochzuheben.
-    \n\n5.  Am Anfang jeden Durchgangs erscheint ein Gegenstand, um Dir zu zeigen
-    nach welchem Gegenstand Du suchen sollst.    \n\n6.  Es gibt immer zwei Gegenst\xE4nde
-    des gleichen Typs, die eingesammelt werden sollen (z.B. zwei Ananasse). Du musst
-    beide Ananasse einsammeln, um fortzufahren. \n\n7.  Warte auf das Piep-Zeichen
-    am Anfang jeden Durchgangs bevor Du losl\xE4ufst.\n\n8.  Versuche die Gegenst\xE4nde,
-    auf die Du hingewiesen wurdest, in jedem Durchgang so schnell wie m\xF6glich
-    zu finden und bevor die Zeit abl\xE4uft. \n\n9.  Br\xFCcken verbinden die verschiedenen
-    Teile des Labyrinths. Da es Zeit kostet sich zwischen den Teilen des Labyrinths
-    zu bewegen, solltest du genau \xFCberlegen welche Br\xFCcken du w\xE4hlst.\n\n10.  
-    Dir wird ein Bonus von 0.003 Euro f\xFCr jeden Punkt deines finalen Scores gezahlt
-    (das kann bis zu 10 Euro betragen, wenn Du gut bist)\n\nViel Gl\xFCck!"
+  m_Text: "Next, you will have the opportunity to complete two practice trials. \n\nAfter
+    that, the experiment will begin. \n\nGood luck!"
 --- !u!222 &1764869487
 CanvasRenderer:
   m_ObjectHideFlags: 0
