@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Get ready, the experiment begins in...
+  m_Text: 'The experiment will start in:'
 --- !u!222 &90288064
 CanvasRenderer:
   m_ObjectHideFlags: 0

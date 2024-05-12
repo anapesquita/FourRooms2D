@@ -128,6 +128,7 @@ public class ExperimentConfig
         // Experiments with training blocked by context
 
         experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
+        //experimentVersion = "mturk2D_peanutmartini_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
         //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";  
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
@@ -211,7 +212,16 @@ public class ExperimentConfig
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = true;
                 break;
-
+//AP----
+            case "mturk2D_peanutmartini_intermingled":
+                nDebreifQuestions = 0;
+                practiceTrials = 2 + getReadyTrial;
+                totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
+                restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
+                transferCounterbalance = true;
+                break;
+//---- AP
             case "mturk2D_peanutmartini_wackycolours":       // ----Full 4 block learning experiment-----
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
@@ -240,10 +250,14 @@ public class ExperimentConfig
         // Figure out how many rest breaks we will have and add them to the trial list
         nbreaks = Math.Max( (int)((totalTrials - setupAndCloseTrials - practiceTrials - nDebreifQuestions) / restFrequency), 0 );  // round down to whole integer
         totalTrials = totalTrials + nbreaks;
-       
+      
         // Timer variables (measured in seconds) - these can later be changed to be different per trial for jitter etc
         dataRecordFrequency = 0.04f;
-        getReadyDuration = 3.0f;    // how long do we have to 'get ready' after the practice, before main experiment begins?
+        //AP getReadyDuration = 3.0f;    // how long do we have to 'get ready' after the practice, before main experiment begins?
+        //AP --
+        getReadyDuration = 60.0f;
+        //--AP
+
 
         // Note that when used, jitters ADD to these values - hence they are minimums
         //maxMovementTime        = 60.0f;   // changed to be a function of trial number. Time allowed to collect both rewards, incl. wait after hitting first one
@@ -251,7 +265,8 @@ public class ExperimentConfig
         displayCueTime         = 1.5f;
         goCueDelay             = 1.0f;    //
         //goalHitPauseTime       = 1.0f;      // This will also be the amount of time between computer vs human control handovers (+ minDwellAtReward + preRewardAppearTime)
-        finalGoalHitPauseTime  = 1f;        
+        //AP finalGoalHitPauseTime  = 1f;
+        finalGoalHitPauseTime = 5f;
         minDwellAtReward       = 0.2f;
         preRewardAppearTime    = 0.3f;      // I think this needs to be jittered to separate neural signals for same room diff states under a consistent policy
         displayMessageTime     = 1.5f;     
@@ -306,8 +321,10 @@ public class ExperimentConfig
 
         // Define the start up menu and exit trials.   Note:  the other variables take their default values on these trials
         trialMazes[0] = "Persistent";
-        trialMazes[1] = "InformationScreen";
-        trialMazes[2] = "BeforeStartingScreen";
+        //AP --
+        trialMazes[2] = "InformationScreen";
+        trialMazes[1] = "BeforeStartingScreen";
+        //--AP
         trialMazes[3] = "ConsentScreen";
         trialMazes[4] = "StartScreen";
         trialMazes[5] = "InstructionsScreen";
@@ -352,7 +369,23 @@ public class ExperimentConfig
                 nextTrial = AddTwoScannerRuns(nextTrial, "pineapple", "avocado");
                 break;
 
-            case "mturk2D_cheesewatermelon":       // ----Full 4 block learning experiment-----
+            case "mturk2D_cheesewatermelon":// ----Full 4 block learning experiment-----
+                //---- training block 1
+                nextTrial = AddTrainingBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 2
+                nextTrial = AddTrainingBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 3
+                nextTrial = AddTrainingBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 4
+                nextTrial = AddTrainingBlock(nextTrial);
+
+                break;
             case "mturk2D_cheesewatermelon_wackycolours":  
                    
                 //---- training block 1
@@ -373,6 +406,41 @@ public class ExperimentConfig
                 break;
 
             case "mturk2D_peanutmartini":  // ----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
+                                           //---- transfer block 1
+                nextTrial = AddTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 2
+                nextTrial = AddTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 3
+                nextTrial = AddTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 4
+                nextTrial = AddTransferBlock(nextTrial);
+
+                break;
+            //AP----
+            case "mturk2D_peanutmartini_intermingled":
+                //---- transfer block 1
+                nextTrial = AddIntermTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 2
+                nextTrial = AddIntermTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 3
+                nextTrial = AddIntermTransferBlock(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- transfer block 4
+                nextTrial = AddIntermTransferBlock(nextTrial);
+
+                break;
+                //----AP
             case "mturk2D_peanutmartini_wackycolours":  
 
                 //---- transfer block 1
@@ -1016,13 +1084,13 @@ public class ExperimentConfig
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1592,7 +1660,10 @@ public class ExperimentConfig
                 // rewards are positioned in all boxes
                 trialMazes[trial] = "PrePostForage_" + rewardTypes[trial];
                 freeForage[trial] = true;
-                maxMovementTime[trial] = 120.0f;       // 2 mins to collect all rewards on freeforaging trials
+                //AP maxMovementTime[trial] = 120.0f;       // 2 mins to collect all rewards on freeforaging trials
+                //AP --
+                maxMovementTime[trial] = 300.0f;            // 5 mins to collect all rewards on freeforaging trials
+                //--AP
                 blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];
@@ -1688,7 +1759,8 @@ public class ExperimentConfig
                     trialMazes[trial] = "FourRooms_" + rewardTypes[trial];
                 }
                 freeForage[trial] = false;
-                maxMovementTime[trial] = 50.0f;        // 1 min to collect just the 2 rewards on covariance trials ***HRS changed from 60 on 4/06/2019
+                //AP maxMovementTime[trial] = 50.0f;        // 1 min to collect just the 2 rewards on covariance trials ***HRS changed from 60 on 4/06/2019
+                maxMovementTime[trial] = 75.0f;
                 blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];

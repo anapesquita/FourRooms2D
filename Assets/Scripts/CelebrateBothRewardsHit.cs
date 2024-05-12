@@ -19,7 +19,7 @@ public class CelebrateBothRewardsHit : MonoBehaviour
             CelebratoryMessage.fontSize = 36*3;
             //--AP
             CelebratoryMessage.color = Color.white;
-            //CelebratoryMessage.text = "Well done!";
+            CelebratoryMessage.text = "Well done!";
         }
         else
         {

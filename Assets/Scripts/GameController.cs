@@ -79,7 +79,9 @@ public class GameController : MonoBehaviour
     public bool scoreUpdated = false;
     public bool pauseClock = false;
     public bool flashCongratulations = false;
+    public bool flashPoints = false;
     public bool congratulated = false;
+    public bool seenPoints = false;
     private float beforeScoreUpdateTime = 0.2f;  // this is just for display (but maybe relevant for fMRI?)  ***HRS
     public float animationTime;
     public float preRewardAppearTime;
@@ -545,10 +547,12 @@ public class GameController : MonoBehaviour
                 // This is the state when the FINAL reward to be collected is found (in the case of 2 or multiple rewards)
                 displayTimeLeft = false;             // freeze the visible countdown
 
-                if (stateTimer.ElapsedSeconds() > goalHitPauseTime[bouldersExplored])
-                {
-                    CongratulatePlayer();                // display a big congratulatory message
-                }
+                //if (stateTimer.ElapsedSeconds() > goalHitPauseTime[bouldersExplored])
+                //{
+                    CongratulatePlayer(); // display a big congratulatory message
+                    ShowPointsPlayer();
+                    Debug.Log("Called CongratulatedPlayer and ShowPointsPlayer");
+                //}
 
                 if (stateTimer.ElapsedSeconds() > beforeScoreUpdateTime)
                 {
@@ -558,6 +562,7 @@ public class GameController : MonoBehaviour
                 {
                     flashTotalScore = false;
                     flashCongratulations = false;
+                    flashPoints = false;
                     StateNext(STATE_FINISH);
                 }
                 break;
@@ -753,6 +758,7 @@ public class GameController : MonoBehaviour
         displayTimeLeft = false;
         scoreUpdated = false;
         congratulated = false;
+        seenPoints = false;
         pauseClock = false;
         debriefResponseRecorded = false;
         trialScore = 0;
@@ -1289,6 +1295,19 @@ public class GameController : MonoBehaviour
             flashCongratulations = true;
         }
     }
+
+
+    public void ShowPointsPlayer()
+    {   // Note that we are doing this separately from textMessage because we want it to be a bigger, more dramatic font
+        if (!seenPoints) // just run this once per trial
+        {
+            seenPoints = true;
+            flashPoints = true;
+            //congratulated = true;
+            //flashCongratulations = true;
+        }
+    }
+
 
     // ********************************************************************** //
 
