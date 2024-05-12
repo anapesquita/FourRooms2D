@@ -19,7 +19,8 @@ public class CelebrateBothRewardsHit : MonoBehaviour
             CelebratoryMessage.fontSize = 36*3;
             //--AP
             CelebratoryMessage.color = Color.white;
-            CelebratoryMessage.text = "Well done!";
+            //AP CelebratoryMessage.text = "Well done! You found both rewards!";
+            CelebratoryMessage.text = "";
         }
         else
         {

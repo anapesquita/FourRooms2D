@@ -29,8 +29,8 @@ public class TotalScoreUpdateScript : MonoBehaviour {
             trialScore = GameController.control.trialScore;
             if (trialScore>=0)
             {
-                ScoreUpdate.text = "+" + trialScore.ToString();
-
+                //AP ScoreUpdate.text = "+" + trialScore.ToString();
+                ScoreUpdate.text = "";
                 TotalScore.color = Color.cyan;  // flash cyan since +ve update
                 // AP TotalScore.fontSize = 50;
                 // AP --

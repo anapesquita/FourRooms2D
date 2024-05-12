@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
     public int trialScore = 0;
     public int totalScore = 0;
     public int nextScore;
+    public List<int> trialScoresList = new List<int>();
     public bool flashTotalScore = false;
     public bool scoreUpdated = false;
     public bool pauseClock = false;
@@ -1269,16 +1270,24 @@ public class GameController : MonoBehaviour
                 if (State == STATE_ERROR)  // take off 20 points for a mistrial
                 {
                     if (!((FLAG_dataWritingError || FLAG_fullScreenModeError) || (FLAG_frameRateError)))  // don't penalize internet connection or writing errors or framerate errors
-                    { 
-                        trialScore = -20;
+                    {
+                        //AP trialScore = -20;
+                        trialScore = -10;
                     }
                 }
                 else                       // increase the total score
                 {
-                    trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
+                    //AP trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
+                    //AP
+                    trialScore = (int)Mathf.Round(100-(totalMovementTime*100/maxMovementTime));
+                    //AP
                 }
                 Debug.Log("Score updating.");
-                totalScore += trialScore;
+                //AP
+                trialScoresList.Add(trialScore);
+                totalScore = (int)Math.Round((trialScoresList.Sum(x => (double)x)) / (trialScoresList.Count), 2);
+                //AP
+                //totalScore += trialScore;
                 scoreUpdated = true;
                 flashTotalScore = true;
             }
