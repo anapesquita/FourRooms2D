@@ -631,7 +631,7 @@ public class GameController : MonoBehaviour
                 elapsedRestbreakTime = restbreakTimer.ElapsedSeconds();
 
                 // Wait for the human at the scanner to press the space bar to start things again
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.T))
                 {
                     readyForSecondRun = true;
                 }
@@ -1272,14 +1272,14 @@ public class GameController : MonoBehaviour
                     if (!((FLAG_dataWritingError || FLAG_fullScreenModeError) || (FLAG_frameRateError)))  // don't penalize internet connection or writing errors or framerate errors
                     {
                         //AP trialScore = -20;
-                        trialScore = -10;
+                        trialScore = 0;
                     }
                 }
                 else                       // increase the total score
                 {
                     //AP trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
                     //AP
-                    trialScore = (int)Mathf.Round(100-(totalMovementTime*100/maxMovementTime));
+                    trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
                     //AP
                 }
                 Debug.Log("Score updating.");

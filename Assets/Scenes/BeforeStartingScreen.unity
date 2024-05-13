@@ -1163,11 +1163,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Before you begin, we want to assure you that the experimenter is readily
-    available to answer any questions you may have. \n\nPlease take the time to carefully
-    read the 'Information sheet' and 'Consent form' provided. \r\n\nIf you decide
-    to participate, please sign the 'Consent form' provided by the experimenter.
-    \r\n"
+  m_Text: "Please take the time to carefully read the 'Information sheet' and 'Consent
+    form' provided. \r\n\nIf you decide to participate, please sign the 'Consent
+    form' provided by the experimenter. \r\n"
 --- !u!222 &1654966333
 CanvasRenderer:
   m_ObjectHideFlags: 0

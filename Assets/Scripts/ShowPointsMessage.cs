@@ -22,7 +22,7 @@ public class ShowPointsMessage : MonoBehaviour
             //--AP
             PointsMessage.color = Color.white;
             Debug.Log("About to show TEST");
-            PointsMessage.text = "You scored " + GameController.control.trialScore + "%"; //+ GameController.control.trialScore;
+            PointsMessage.text = "Score: " + GameController.control.trialScore + "%"; //+ GameController.control.trialScore;
         }
         else
         {

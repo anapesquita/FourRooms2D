@@ -185,7 +185,7 @@ public class ExperimentConfig
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 break;
 
-            case "mturk2D_cheesewatermelon":       // ----Full 4 block learning experiment-----
+            case "mturk2D_cheesewatermelon":       // ----Full 4 block learning experiment day 1-----
                 nDebreifQuestions = 0; 
                 practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
@@ -204,13 +204,13 @@ public class ExperimentConfig
                 wackyColours = true;                                                // use different colours to the peanut/martini case
                 break;
 
-            case "mturk2D_peanutmartini":       // ----Full 4 block learning experiment-----
+            case "mturk2D_peanutmartini":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
-                practiceTrials = 2 + getReadyTrial;
+                practiceTrials = 0 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
-                transferCounterbalance = true;
+                transferCounterbalance = false;
                 break;
 //AP----
             case "mturk2D_peanutmartini_intermingled":
@@ -407,19 +407,20 @@ public class ExperimentConfig
 
             case "mturk2D_peanutmartini":  // ----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
                                            //---- transfer block 1
-                nextTrial = AddTransferBlock(nextTrial);
+                                           //---- training block 1
+                nextTrial = AddTrainingBlockDay2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
-                //---- transfer block 2
-                nextTrial = AddTransferBlock(nextTrial);
+                //---- training block 2
+                nextTrial = AddTrainingBlockDay2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
-                //---- transfer block 3
-                nextTrial = AddTransferBlock(nextTrial);
+                //---- training block 3
+                nextTrial = AddTrainingBlockDay2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
-                //---- transfer block 4
-                nextTrial = AddTransferBlock(nextTrial);
+                //---- training block 4
+                nextTrial = AddTrainingBlockDay2(nextTrial);
 
                 break;
             //AP----
@@ -1095,6 +1096,26 @@ public class ExperimentConfig
         return nextTrial;
     }
 
+
+    private int AddTrainingBlockDay2(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+
+        if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+        }
+        else
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
+        }
+        return nextTrial;
+    }
+
+
     // ********************************************************************** //
 
     private int AddIntermTrainingBlock(int nextTrial)
@@ -1118,15 +1139,15 @@ public class ExperimentConfig
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         bool freeForageFLAG = false;
 
-        if (rand.Next(2) == 0)   // randomise whether the peanut or martini sub-block happens first
+        if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1554,6 +1575,19 @@ public class ExperimentConfig
                 break;
 
             case "peanut":
+                //AP ---
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
+            //--AP
             case "mushroom":
             case "pineapple":
 
@@ -1588,6 +1622,19 @@ public class ExperimentConfig
 
             case "banana":
             case "martini":
+                //AP ---
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
+            //AP ---
             case "avocado":
 
                 if (transferCounterbalance)
