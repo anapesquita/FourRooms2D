@@ -31,8 +31,8 @@ public class DataController : MonoBehaviour {
     public bool questionAnswered = false;
 
     // Data file saving
-    private string baseFilePath = "/Users/a.pesquita@bham.ac.uk/Documents/GitHub/FourRooms2D/data/";
-
+    //AP private string baseFilePath = "/Users/a.pesquita@bham.ac.uk/Documents/GitHub/FourRooms2D/data/";
+    private string baseFilePath = "C:/Users/pesquita/Documents/GitHub/FourRooms2D/data/";
     //private string baseFilePath = @".\data\";  // for Berlin fMRI machine
     public DateTime dateTime = DateTime.Now;
     public string stringDateTime; 

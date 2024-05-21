@@ -127,8 +127,8 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
-        experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
-        //experimentVersion = "mturk2D_peanutmartini_intermingled";
+        //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
+        experimentVersion = "mturk2D_day3_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
         //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";  
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
@@ -206,14 +206,14 @@ public class ExperimentConfig
 
             case "mturk2D_peanutmartini":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
-                practiceTrials = 0 + getReadyTrial;
+                practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;
                 break;
 //AP----
-            case "mturk2D_peanutmartini_intermingled":
+            case "mturk2D_day3_intermingled":
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
@@ -424,23 +424,45 @@ public class ExperimentConfig
 
                 break;
             //AP----
-            case "mturk2D_peanutmartini_intermingled":
-                //---- transfer block 1
-                nextTrial = AddIntermTransferBlock(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+            case "mturk2D_day3_intermingled":
 
-                //---- transfer block 2
-                nextTrial = AddIntermTransferBlock(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
+                {
+                    //---- transfer block 1
+                    nextTrial = AddIntermTransferBlock_A(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
 
-                //---- transfer block 3
-                nextTrial = AddIntermTransferBlock(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                    //---- transfer block 2
+                    nextTrial = AddIntermTransferBlock_A(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
 
-                //---- transfer block 4
-                nextTrial = AddIntermTransferBlock(nextTrial);
+                    //---- transfer block 3
+                    nextTrial = AddIntermTransferBlock_B(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
 
+                    //---- transfer block 4
+                    nextTrial = AddIntermTransferBlock_B(nextTrial);
+                }
+                else
+                {
+                    //---- transfer block 1
+                    nextTrial = AddIntermTransferBlock_B(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
+
+                    //---- transfer block 2
+                    nextTrial = AddIntermTransferBlock_B(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
+
+                    //---- transfer block 3
+                    nextTrial = AddIntermTransferBlock_A(nextTrial);
+                    nextTrial = RestBreakHere(nextTrial);
+
+                    //---- transfer block 4
+                    nextTrial = AddIntermTransferBlock_A(nextTrial);
+                }
+  
                 break;
+
                 //----AP
             case "mturk2D_peanutmartini_wackycolours":  
 
@@ -1042,17 +1064,26 @@ public class ExperimentConfig
 
     // ********************************************************************** //
 
-    private Vector3 findStartOrientation(Vector3 position)     {
+    private Vector3 findStartOrientation(Vector3 position)
+    {
         /*
         // Generate a starting orientation that always makes the player look towards the centre of the environment
-        Vector3 lookVector = new Vector3();         lookVector = mazeCentre - position; 
-        float angle = (float)Math.Atan2(lookVector.z, lookVector.x);   // angle of the vector connecting centre and spawn location         angle = 90 - angle * (float)(180 / Math.PI);                   // correct for where angles are measured from 
+        Vector3 lookVector = new Vector3();
+        lookVector = mazeCentre - position;
+
+        float angle = (float)Math.Atan2(lookVector.z, lookVector.x);   // angle of the vector connecting centre and spawn location
+        angle = 90 - angle * (float)(180 / Math.PI);                   // correct for where angles are measured from
+
         if (angle<0)   // put the view angle in the range 0 to 360 degrees
         {
             angle = 360 + angle;
         }
-        spawnOrientation = new Vector3(0.0f, angle, 0.0f);         */
-        spawnOrientation = new Vector3(0f, 0f, 0f);  // ***HRS not currently used and will probs not be used for 2D version         return spawnOrientation;     } 
+        spawnOrientation = new Vector3(0.0f, angle, 0.0f);
+        */
+        spawnOrientation = new Vector3(0f, 0f, 0f);  // ***HRS not currently used and will probs not be used for 2D version
+        return spawnOrientation;
+    }
+
     // ********************************************************************** //
 
     private int RestBreakHere(int firstTrial)
@@ -1154,13 +1185,13 @@ public class ExperimentConfig
 
     // ********************************************************************** //
 
-    private int AddIntermTransferBlock(int nextTrial)
+    private int AddIntermTransferBlock_A(int nextTrial)
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         int firstTrial = nextTrial;
         bool freeForageFLAG = false;
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "pineapple", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "avocado", freeForageFLAG);
 
         // reshuffle the trial ordering so they are intermingled but preserve the previous arrangement of things
         ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
@@ -1168,6 +1199,19 @@ public class ExperimentConfig
         return nextTrial;
     }
 
+    private int AddIntermTransferBlock_B(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        int firstTrial = nextTrial;
+        bool freeForageFLAG = false;
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "mushroom", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "banana", freeForageFLAG);
+
+        // reshuffle the trial ordering so they are intermingled but preserve the previous arrangement of things
+        ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
+
+        return nextTrial;
+    }
     // ********************************************************************** //
 
     private int AddFreeForageBlock(int nextTrial, string rewardSet)
@@ -1589,38 +1633,45 @@ public class ExperimentConfig
                 break;
             //--AP
             case "mushroom":
+
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
             case "pineapple":
 
-                if (transferCounterbalance) 
+                if (contextSide == 1)
                 {
-                    if (contextSide == 1)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    else if (contextSide == 2)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    break;
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
                 }
-                else 
-                { 
-                    if (contextSide == 1)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    else if (contextSide == 2)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    break;
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
                 }
-
+                break;
             case "banana":
+
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
+
             case "martini":
                 //AP ---
                 if (contextSide == 1)
@@ -1637,34 +1688,18 @@ public class ExperimentConfig
             //AP ---
             case "avocado":
 
-                if (transferCounterbalance)
+                if (contextSide == 1)
                 {
-                    if (contextSide == 1)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    else if (contextSide == 2)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    break;
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
                 }
-                else
+                else if (contextSide == 2)
                 {
-                    if (contextSide == 1)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    else if (contextSide == 2)
-                    {
-                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                        trialSetCorrectly = true;
-                    }
-                    break;
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
                 }
+                break;
+
             default:
                     break;
             }
