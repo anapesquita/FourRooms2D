@@ -127,9 +127,9 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
-        experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
+        //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_peanutmartini_intermingled";
-        //experimentVersion = "mturk2D_peanutmartini";
+        experimentVersion = "mturk2D_peanutmartini";
         //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";  
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
         //experimentVersion = "micro2D_debug"; 
@@ -206,7 +206,7 @@ public class ExperimentConfig
 
             case "mturk2D_peanutmartini":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
-                practiceTrials = 0 + getReadyTrial;
+                practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
