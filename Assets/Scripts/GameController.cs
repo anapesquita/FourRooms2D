@@ -385,7 +385,7 @@ public class GameController : MonoBehaviour
 
             case STATE_GOALAPPEAR:
                 // display the reward type cue
-                displayCue = true;
+                displayCue = false; //AP
                 if (stateTimer.ElapsedSeconds() > displayCueTime)
                 {
                     displayCue = false;
@@ -1277,15 +1277,15 @@ public class GameController : MonoBehaviour
                 }
                 else                       // increase the total score
                 {
-                    //AP trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
+                    trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
                     //AP
-                    trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
+                    //trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
                     //AP
                 }
                 Debug.Log("Score updating.");
                 //AP
                 trialScoresList.Add(trialScore);
-                totalScore = (int)Math.Round((trialScoresList.Sum(x => (double)x)) / (trialScoresList.Count), 2);
+                totalScore = (int)Math.Round(trialScoresList.Sum(x => (double)x), 2);
                 //AP
                 //totalScore += trialScore;
                 scoreUpdated = true;
