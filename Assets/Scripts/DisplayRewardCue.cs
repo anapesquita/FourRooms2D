@@ -38,6 +38,8 @@ public class DisplayRewardCue : MonoBehaviour
         if ( GameController.control.displayCue  || GameController.control.showCanvasReward )
         {
             cue = GameController.control.rewardType;
+            
+
             switch (cue)
             {
                 case "wine":
@@ -49,6 +51,9 @@ public class DisplayRewardCue : MonoBehaviour
                 case "martini":
                     rewardImage.sprite = martiniImage;
                     break;
+                case "martini_switch":
+                    rewardImage.sprite = martiniImage;
+                    break;
                 case "banana":
                     rewardImage.sprite = bananaImage;
                     break;
@@ -56,6 +61,9 @@ public class DisplayRewardCue : MonoBehaviour
                     rewardImage.sprite = watermelonImage;
                     break;
                 case "peanut":
+                    rewardImage.sprite = peanutImage;
+                    break;
+                case "peanut_switch":
                     rewardImage.sprite = peanutImage;
                     break;
                 case "pineapple":

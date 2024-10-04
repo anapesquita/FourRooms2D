@@ -127,10 +127,12 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
+        experimentVersion = "mturk2D_peanutmartini_v2d2";
+        //experimentVersion = "mturk2D_cheesewatermelon_v2_d1";
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
-        experimentVersion = "mturk2D_day3_intermingled";
+        //experimentVersion = "mturk2D_day3_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
-        //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";  
+        //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
         //experimentVersion = "micro2D_debug"; 
         //experimentVersion = "scannertask_cheese";   // be careful with adding extra practice trials between scan runs though (dont have extra practice)
@@ -212,7 +214,16 @@ public class ExperimentConfig
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;
                 break;
-//AP----
+
+            case "mturk2D_peanutmartini_v2d2":       // ----Full 4 block learning experiment day 2-----
+                nDebreifQuestions = 0;
+                practiceTrials = 2 + getReadyTrial;
+                totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
+                restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
+                transferCounterbalance = false;
+                break;
+            //AP----
             case "mturk2D_day3_intermingled":
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
@@ -344,7 +355,24 @@ public class ExperimentConfig
         // Define the full trial sequence
         switch (experimentVersion)
         {
+            case "mturk2D_peanutmartini_v2d2":   //----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
+                                                //----Transfer block 1
+                                               //----Training block 1
+                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
 
+                //---- training block 2
+                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 3
+                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 4
+                nextTrial = AddTrainingBlockDay2(nextTrial);
+
+                break;
             case "scannertask_cheese":
 
                 // shuffled contexts for 2 runs
@@ -1146,6 +1174,23 @@ public class ExperimentConfig
         return nextTrial;
     }
 
+    private int AddTrainingBlockDay2_switch(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+
+        if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut_switch", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini_switch", freeForageFLAG);
+        }
+        else
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini_switch", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut_switch", freeForageFLAG);
+        }
+        return nextTrial;
+    }
 
     // ********************************************************************** //
 
@@ -1632,6 +1677,22 @@ public class ExperimentConfig
                 }
                 break;
             //--AP
+
+            case "peanut_switch":
+                //AP ---
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
+            //--AP
+
             case "mushroom":
 
                 if (contextSide == 1)
@@ -1682,6 +1743,19 @@ public class ExperimentConfig
                 else if (contextSide == 2)
                 {
                     SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                break;
+            //AP ---
+            case "martini_switch":
+                if (contextSide == 1)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                    trialSetCorrectly = true;
+                }
+                else if (contextSide == 2)
+                {
+                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
                     trialSetCorrectly = true;
                 }
                 break;
