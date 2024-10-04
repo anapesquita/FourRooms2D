@@ -584,10 +584,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: b8162798-dd80-4851-9e65-d58145daae57
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: FourRooms2D
-  organizationId: hannahsheahan
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
