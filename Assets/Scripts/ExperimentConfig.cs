@@ -1160,7 +1160,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         bool freeForageFLAG = false;
-
+        int firstTrial = nextTrial;
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
@@ -1171,6 +1171,8 @@ public class ExperimentConfig
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
         }
+        ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
+
         return nextTrial;
     }
 
@@ -1178,6 +1180,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         bool freeForageFLAG = false;
+        int firstTrial = nextTrial;
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
@@ -1189,6 +1192,8 @@ public class ExperimentConfig
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 1, freeForageFLAG);
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 1, freeForageFLAG);
         }
+        ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
+
         return nextTrial;
     }
 
