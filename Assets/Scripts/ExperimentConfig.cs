@@ -356,8 +356,8 @@ public class ExperimentConfig
         switch (experimentVersion)
         {
             case "mturk2D_peanutmartini_v2d2":   //----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
-                                                //----Transfer block 1
-                                               //----Training block 1
+                                                 //----Transfer block 1
+                Debug.Log("Inside the experimentVersion");                               //----Training block 1
                 nextTrial = AddTrainingBlockDay2_switch(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
@@ -366,7 +366,7 @@ public class ExperimentConfig
                 nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 3
-                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 4
@@ -569,7 +569,7 @@ public class ExperimentConfig
         if (numPracticeTrials > 0) 
         { 
             bool freeForageFLAG = false;
-            SingleContextfMRIPracticeBlock(nextTrial, numPracticeTrials, "martini", freeForageFLAG);
+            SingleContextfMRIPracticeBlock(nextTrial, numPracticeTrials, "martini", 0, freeForageFLAG);
 
             for (int trial = nextTrial; trial < numPracticeTrials + nextTrial; trial++) 
             {
@@ -1144,13 +1144,13 @@ public class ExperimentConfig
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", 0, freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon",0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", 0, freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1163,13 +1163,13 @@ public class ExperimentConfig
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0,freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1181,13 +1181,13 @@ public class ExperimentConfig
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut_switch", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini_switch", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 1, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 1, freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini_switch", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut_switch", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 1, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 1, freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1199,8 +1199,8 @@ public class ExperimentConfig
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         int firstTrial = nextTrial;
         bool freeForageFLAG = false;
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", 0, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", 0, freeForageFLAG);
 
         // reshuffle the trial ordering so they are intermingled but preserve the previous arrangement of things
         ReshuffleTrialOrder(firstTrial, nextTrial-firstTrial );
@@ -1217,13 +1217,13 @@ public class ExperimentConfig
 
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
         }
         else
         {
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0,freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
         }
         return nextTrial;
     }
@@ -1235,8 +1235,8 @@ public class ExperimentConfig
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         int firstTrial = nextTrial;
         bool freeForageFLAG = false;
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "pineapple", freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "avocado", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "pineapple", 0,freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "avocado", 0,freeForageFLAG);
 
         // reshuffle the trial ordering so they are intermingled but preserve the previous arrangement of things
         ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
@@ -1249,8 +1249,8 @@ public class ExperimentConfig
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         int firstTrial = nextTrial;
         bool freeForageFLAG = false;
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "mushroom", freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "banana", freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "mushroom", 0,freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "banana", 0,freeForageFLAG);
 
         // reshuffle the trial ordering so they are intermingled but preserve the previous arrangement of things
         ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
@@ -1268,13 +1268,13 @@ public class ExperimentConfig
         { 
             if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
             {
-                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
-                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
+                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", 0,freeForageFLAG);
+                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", 0,freeForageFLAG);
             }
             else
             {
-                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", freeForageFLAG);
-                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", freeForageFLAG);
+                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "cheese", 0,freeForageFLAG);
+                nextTrial = SingleContextDoubleRewardBlock(nextTrial, "watermelon", 0,freeForageFLAG);
             }
         }
 
@@ -1286,13 +1286,13 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
 
-        nextTrial = DoubleRewardBlock_micro(nextTrial, "watermelon", numberOfTrials);
+        nextTrial = DoubleRewardBlock_micro(nextTrial, "watermelon", 0,numberOfTrials);
 
         return nextTrial;
     }
     // ********************************************************************** //
 
-    private int SingleContextfMRIPracticeBlock(int firstTrial, int blockLength, string context, bool freeForageFLAG)
+    private int SingleContextfMRIPracticeBlock(int firstTrial, int blockLength, string context, int covariance, bool freeForageFLAG)
     {
         // This function specifies a set of semi-balanced trials for practicing on. 
         // This will be the familiarisation session for participants to get used to the new experiment pace, switching control etc of the test sessions, 
@@ -1378,7 +1378,7 @@ public class ExperimentConfig
         }
 
         // Randomise the trial order and save it
-        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
+        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, covariance, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
 
         return firstTrial + blockLength;
     }
@@ -1394,6 +1394,7 @@ public class ExperimentConfig
         int contextSide;
         bool controlCorrect;
         int blockLength = 16; // Specify the next 16 trials
+        int covariance = 0;
 
         string[] arrayContexts = new string[blockLength];
         string[] arrayStartRooms = new string[blockLength];
@@ -1471,14 +1472,14 @@ public class ExperimentConfig
         }
 
         // Randomise the trial order and save it
-        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
+        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, covariance, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
 
         return firstTrial + blockLength;
     }
 
     // ********************************************************************** //
 
-    private int SingleContextDoubleRewardBlock(int firstTrial, string context, bool freeForageFLAG)
+    private int SingleContextDoubleRewardBlock(int firstTrial, string context, int covariance, bool freeForageFLAG)
     {
         // This function specifies the required trials in the block, and returns the next trial after this block
         // NOTE: Use this function if you want to 'block' by reward type
@@ -1543,14 +1544,14 @@ public class ExperimentConfig
         }
 
         // Randomise the trial order and save it
-        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
+        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, covariance, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
 
         return firstTrial + blockLength;
     }
 
     // ********************************************************************** //
 
-    private int DoubleRewardBlock_micro(int firstTrial, string context, int blockLength)
+    private int DoubleRewardBlock_micro(int firstTrial, string context, int covariance, int blockLength)
     {
         // This is for use during testing and debugging only - it DOES NOT specify a full counterbalanced trial sequence
         // This function specifies the required trials in the block, and returns the next trial after this block
@@ -1614,14 +1615,14 @@ public class ExperimentConfig
 
         // Randomise the trial order and save it
         bool freeForageFLAG = false;
-        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
+        ShuffleTrialOrderAndStoreBlock(firstTrial, blockLength, arrayContexts, covariance, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
 
         return firstTrial + blockLength;
     }
 
     // ********************************************************************** //
 
-    private void SetTrialInContext(int trial, int trialInBlock, string startRoom, string context, int contextSide, string[] controlType, bool controlCorrect, bool freeForageFLAG)
+    private void SetTrialInContext(int trial, int trialInBlock, string startRoom, string context, int covariance, int contextSide, string[] controlType, bool controlCorrect, bool freeForageFLAG)
     {
         // This function specifies the reward covariance
 
@@ -1632,153 +1633,276 @@ public class ExperimentConfig
 
         bool trialSetCorrectly = false;
 
-
-        switch (context)
+        if (covariance == 0)
         {
-            case "cheese":   // vertical
-                   
-                if (contextSide==1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                } 
-                else if (contextSide==2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
+            switch (context)
+            {
+                case "cheese":   // vertical
 
-            case "watermelon":   // horizontal
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
 
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
+                case "watermelon":   // horizontal
 
-            case "peanut":
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+                case "peanut":
+                    //AP ---
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                //--AP
+
+                case "peanut_switch":
+                    //AP ---
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                //--AP
+
+                case "mushroom":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                case "pineapple":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                case "banana":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+                case "martini":
+                    //AP ---
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
                 //AP ---
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            //--AP
-
-            case "peanut_switch":
+                case "martini_switch":
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
                 //AP ---
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            //--AP
+                case "avocado":
 
-            case "mushroom":
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
 
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            case "pineapple":
-
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            case "banana":
-
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-
-            case "martini":
-                //AP ---
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            //AP ---
-            case "martini_switch":
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-            //AP ---
-            case "avocado":
-
-                if (contextSide == 1)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                else if (contextSide == 2)
-                {
-                    SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
-                    trialSetCorrectly = true;
-                }
-                break;
-
-            default:
+                default:
                     break;
             }
-    
-        if (!trialSetCorrectly)
+        } else if (covariance == 1)
+
+        {
+            switch (context)
+            {
+                case "cheese":   // vertical
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+                case "watermelon":   // horizontal
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+        
+                //--AP
+
+                case "peanut":
+                    //AP ---
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                //--AP
+
+                case "mushroom":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                case "pineapple":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                case "banana":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+                case "martini":
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "blue", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "green", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+                //AP ---
+                case "avocado":
+
+                    if (contextSide == 1)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "green", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    else if (contextSide == 2)
+                    {
+                        SetDoubleRewardTrial(trial, trialInBlock, context, startRoom, "blue", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+                        trialSetCorrectly = true;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+            if (!trialSetCorrectly)
         {
             Debug.Log("Something went wrong specifying the rooms affiliated with each context!");
         }
@@ -2053,7 +2177,7 @@ public class ExperimentConfig
 
     // ********************************************************************** //
 
-    public void ShuffleTrialOrderAndStoreBlock(int firstTrial, int blockLength, string[] arrayContexts, string[] arrayStartRooms, int[] arrayContextSides, string[][] arrayControlType, bool[] arrayControlCorrect, bool freeForageFLAG)
+    public void ShuffleTrialOrderAndStoreBlock(int firstTrial, int blockLength, string[] arrayContexts, int covariance, string[] arrayStartRooms, int[] arrayContextSides, string[][] arrayControlType, bool[] arrayControlCorrect, bool freeForageFLAG)
     {
         // This function shuffles the prospective trials from firstTrial to firstTrial+blockLength and stores them.
         // This has been checked and works correctly :)
@@ -2110,7 +2234,7 @@ public class ExperimentConfig
             contextSide = arrayContextSides[i];
             controlType = arrayControlType[i];
             controlCorrect = arrayControlCorrect[i];
-            SetTrialInContext(i + firstTrial, i, startRoom, context, contextSide, controlType, controlCorrect, freeForageFLAG);
+            SetTrialInContext(i + firstTrial, i, startRoom, context, covariance, contextSide, controlType, controlCorrect, freeForageFLAG);
         }
     }
 
