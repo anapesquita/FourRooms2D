@@ -34,7 +34,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
                 TotalScore.color = Color.cyan;  // flash cyan since +ve update
                 // AP TotalScore.fontSize = 50;
                 // AP --
-                TotalScore.fontSize = 50*3;
+                TotalScore.fontSize = 24*3;
                 // -- AP
             }
             else
@@ -45,7 +45,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
                 TotalScore.color = Color.red;  // flash red since -ve update
                 //AP TotalScore.fontSize = 50;
                 // AP --
-                TotalScore.fontSize = 50*3;
+                TotalScore.fontSize = 24*3;
                 // -- AP
             }
 
@@ -55,7 +55,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
             TotalScore.color = Color.white;
             //AP TotalScore.fontSize = 36;
             // AP --
-            TotalScore.fontSize = 36*3;
+            TotalScore.fontSize = 24*3;
             // -- AP
             ScoreUpdate.text = "";
         }

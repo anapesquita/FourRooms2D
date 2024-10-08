@@ -128,7 +128,6 @@ public class ExperimentConfig
         // Experiments with training blocked by context
 
         experimentVersion = "mturk2D_peanutmartini_v2d2";
-        //experimentVersion = "mturk2D_cheesewatermelon_v2_d1";
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
@@ -266,31 +265,31 @@ public class ExperimentConfig
         dataRecordFrequency = 0.04f;
         //AP getReadyDuration = 3.0f;    // how long do we have to 'get ready' after the practice, before main experiment begins?
         //AP --
-        getReadyDuration = 60.0f;
+        getReadyDuration = 5.0f;
         //--AP
 
 
         // Note that when used, jitters ADD to these values - hence they are minimums
         //maxMovementTime        = 60.0f;   // changed to be a function of trial number. Time allowed to collect both rewards, incl. wait after hitting first one
-        preDisplayCueTime      = 2.5f;    //  Decode representation of room prior to cue here
-        displayCueTime         = 1.5f;
-        goCueDelay             = 1.0f;    //
+        preDisplayCueTime = 1.0f;   // 2.5f;    //  Decode representation of room prior to cue here
+        displayCueTime = 1.5f;       //1.5f;
+        goCueDelay = 0.2f; //1.0f;    //
         //goalHitPauseTime       = 1.0f;      // This will also be the amount of time between computer vs human control handovers (+ minDwellAtReward + preRewardAppearTime)
         //AP finalGoalHitPauseTime  = 1f;
-        finalGoalHitPauseTime = 5f;
+        finalGoalHitPauseTime = 2.0f; //5f;
         minDwellAtReward       = 0.2f;
         preRewardAppearTime    = 0.3f;      // I think this needs to be jittered to separate neural signals for same room diff states under a consistent policy
         displayMessageTime     = 1.5f;     
         errorDwellTime         = 1.5f;    // Note: should be at least as long as displayMessageTime
         // hallwayFreezeTime      = 4.0f;    // amount of time player is stuck in place with each hallway traversal. This will now be exponential-jittered
-        preFreezeTime          = 0.3f;    // should be about the same, maybe slightly longer than oneSquareMoveTime
+        preFreezeTime = 0.2f; //0.3f;    // should be about the same, maybe slightly longer than oneSquareMoveTime
         //blankTime              = 2.0f;    // Note: ***HRS should be jittered (blank screen time prior to trial starting)
         animationTime          = 1.0f;    // how long the reward grows for when it appears (mainly for visuals)
         numberPresentsPerRoom  = 1;       //
 
-       // physical movement times
-        oneSquareMoveTime = 0.2f;        // Time it will take player to move from one square to next (sec) for animation
-        minTimeBetweenMoves = 0.4f;      // How much time between each allowable move (from movement trigger) (sec) (must be >> than oneSquareMoveTime or position moves off board and path planned execution doesnt work - weird exception)
+        // physical movement times
+        oneSquareMoveTime = 0.1f; //0.2f;        // Time it will take player to move from one square to next (sec) for animation
+        minTimeBetweenMoves = 0.2f;//0.4f;      // How much time between each allowable move (from movement trigger) (sec) (must be >> than oneSquareMoveTime or position moves off board and path planned execution doesnt work - weird exception)
 
         // These variables define the environment (are less likely to be played with)
         roomSize = 4;              // rooms are each 4x4 grids. If this changes, you will need to change this code
@@ -1945,11 +1944,12 @@ public class ExperimentConfig
                 // rewards are positioned in all boxes
                 trialMazes[trial] = "PrePostForage_" + rewardTypes[trial];
                 freeForage[trial] = true;
-                //AP maxMovementTime[trial] = 120.0f;       // 2 mins to collect all rewards on freeforaging trials
+                maxMovementTime[trial] = 120.0f;       // 2 mins to collect all rewards on freeforaging trials
                 //AP --
-                maxMovementTime[trial] = 300.0f;            // 5 mins to collect all rewards on freeforaging trials
+                //maxMovementTime[trial] = 300.0f;            // 5 mins to collect all rewards on freeforaging trials
                 //--AP
-                blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
+                blankTime[trial] = ExponentialJitter(1f, 1.5f, 2f);
+                //blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];
                 for (int i = 0; i < nrooms; i++)
@@ -2045,7 +2045,7 @@ public class ExperimentConfig
                 }
                 freeForage[trial] = false;
                 //AP maxMovementTime[trial] = 50.0f;        // 1 min to collect just the 2 rewards on covariance trials ***HRS changed from 60 on 4/06/2019
-                maxMovementTime[trial] = 75.0f;
+                maxMovementTime[trial] = 60.0f;
                 blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];

@@ -1214,7 +1214,7 @@ public class GameController : MonoBehaviour
         previousState = State;
         firstFrozenTime = totalMovementTime;
         hallwayTraversed = hallway;
-        StateNext(STATE_HALLFREEZE);
+        //StateNext(STATE_HALLFREEZE);
     }
 
     // ********************************************************************** //
@@ -1271,23 +1271,23 @@ public class GameController : MonoBehaviour
                 {
                     if (!((FLAG_dataWritingError || FLAG_fullScreenModeError) || (FLAG_frameRateError)))  // don't penalize internet connection or writing errors or framerate errors
                     {
-                        //AP trialScore = -20;
-                        trialScore = 0;
+                        trialScore = -20;
+                        //trialScore = 0;
                     }
                 }
                 else                       // increase the total score
                 {
-                    //AP trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
+                    trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
                     //AP
-                    trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
+                    //trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
                     //AP
                 }
                 Debug.Log("Score updating.");
                 //AP
                 trialScoresList.Add(trialScore);
-                totalScore = (int)Math.Round((trialScoresList.Sum(x => (double)x)) / (trialScoresList.Count), 2);
+                //totalScore = (int)Math.Round((trialScoresList.Sum(x => (double)x)) / (trialScoresList.Count), 2);
                 //AP
-                //totalScore += trialScore;
+                totalScore += trialScore;
                 scoreUpdated = true;
                 flashTotalScore = true;
             }
