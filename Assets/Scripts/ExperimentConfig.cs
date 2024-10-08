@@ -217,7 +217,7 @@ public class ExperimentConfig
             case "mturk2D_peanutmartini_v2d2":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
-                totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                totalTrials = 16 * 6 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;
@@ -271,16 +271,16 @@ public class ExperimentConfig
 
         // Note that when used, jitters ADD to these values - hence they are minimums
         //maxMovementTime        = 60.0f;   // changed to be a function of trial number. Time allowed to collect both rewards, incl. wait after hitting first one
-        preDisplayCueTime = 1.0f;   // 2.5f;    //  Decode representation of room prior to cue here
+        preDisplayCueTime = 0.2f;   // 2.5f;    //  Decode representation of room prior to cue here
         displayCueTime = 1.5f;       //1.5f;
         goCueDelay = 0.2f; //1.0f;    //
         //goalHitPauseTime       = 1.0f;      // This will also be the amount of time between computer vs human control handovers (+ minDwellAtReward + preRewardAppearTime)
         //AP finalGoalHitPauseTime  = 1f;
-        finalGoalHitPauseTime = 2.0f; //5f;
+        finalGoalHitPauseTime  = 1.0f; //5f;
         minDwellAtReward       = 0.2f;
-        preRewardAppearTime    = 0.3f;      // I think this needs to be jittered to separate neural signals for same room diff states under a consistent policy
-        displayMessageTime     = 1.5f;     
-        errorDwellTime         = 1.5f;    // Note: should be at least as long as displayMessageTime
+        preRewardAppearTime    = 0.2f;      // I think this needs to be jittered to separate neural signals for same room diff states under a consistent policy
+        displayMessageTime = 1.0f; //1.5f;     
+        errorDwellTime = 1.1f; //1.5f;    // Note: should be at least as long as displayMessageTime
         // hallwayFreezeTime      = 4.0f;    // amount of time player is stuck in place with each hallway traversal. This will now be exponential-jittered
         preFreezeTime = 0.2f; //0.3f;    // should be about the same, maybe slightly longer than oneSquareMoveTime
         //blankTime              = 2.0f;    // Note: ***HRS should be jittered (blank screen time prior to trial starting)
@@ -369,6 +369,14 @@ public class ExperimentConfig
                 nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 4
+                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 5
+                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                ////---- training block 6
                 nextTrial = AddTrainingBlockDay2(nextTrial);
 
                 break;
@@ -568,7 +576,7 @@ public class ExperimentConfig
         if (numPracticeTrials > 0) 
         { 
             bool freeForageFLAG = false;
-            SingleContextfMRIPracticeBlock(nextTrial, numPracticeTrials, "martini", 0, freeForageFLAG);
+            SingleContextfMRIPracticeBlock(nextTrial, numPracticeTrials, "banana", 0, freeForageFLAG);
 
             for (int trial = nextTrial; trial < numPracticeTrials + nextTrial; trial++) 
             {
@@ -1948,7 +1956,7 @@ public class ExperimentConfig
                 //AP --
                 //maxMovementTime[trial] = 300.0f;            // 5 mins to collect all rewards on freeforaging trials
                 //--AP
-                blankTime[trial] = ExponentialJitter(1f, 1.5f, 2f);
+                blankTime[trial] = ExponentialJitter(0.5f, 0.75f, 1f);
                 //blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];

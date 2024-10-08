@@ -15,6 +15,8 @@ public class TotalScoreUpdateScript : MonoBehaviour {
     {
         currentTotalScore = GameController.control.totalScore;
         TotalScore.text = currentTotalScore.ToString();
+        ScoreUpdate.fontSize = 108;
+        TotalScore.fontSize = 108;
 
         // When the total score updates make it flash cyan
         if (GameController.control.flashTotalScore)
@@ -23,7 +25,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
             ScoreUpdate.color = Color.white;
             // AP ScoreUpdate.fontSize = 24;
             // AP --
-            ScoreUpdate.fontSize = 24*3;
+            ScoreUpdate.fontSize = 108;
             // -- AP
 
             trialScore = GameController.control.trialScore;
@@ -34,7 +36,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
                 TotalScore.color = Color.cyan;  // flash cyan since +ve update
                 // AP TotalScore.fontSize = 50;
                 // AP --
-                TotalScore.fontSize = 24*3;
+                TotalScore.fontSize = 108;
                 // -- AP
             }
             else
@@ -45,7 +47,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
                 TotalScore.color = Color.red;  // flash red since -ve update
                 //AP TotalScore.fontSize = 50;
                 // AP --
-                TotalScore.fontSize = 24*3;
+                TotalScore.fontSize = 108;
                 // -- AP
             }
 
@@ -55,7 +57,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
             TotalScore.color = Color.white;
             //AP TotalScore.fontSize = 36;
             // AP --
-            TotalScore.fontSize = 24*3;
+            TotalScore.fontSize = 108;
             // -- AP
             ScoreUpdate.text = "";
         }

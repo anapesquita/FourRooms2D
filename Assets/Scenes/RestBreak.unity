@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1225,7 +1224,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 0.5
   m_Text: "Please let the experimenter know \nwhen are ready to start the next run!\n\nYour
-    current average \npercentage score is:"
+    current total score is:"
 --- !u!222 &2105313917
 CanvasRenderer:
   m_ObjectHideFlags: 0
