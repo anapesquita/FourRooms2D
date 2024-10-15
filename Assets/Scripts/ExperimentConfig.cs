@@ -215,13 +215,16 @@ public class ExperimentConfig
                 break;
 
             case "mturk2D_peanutmartini_v2d2":       // ----Full 4 block learning experiment day 2-----
+
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
-                totalTrials = 16 * 6 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                totalTrials = 96 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
-                transferCounterbalance = false;
                 break;
+
+
+                //break;
             //AP----
             case "mturk2D_day3_intermingled":
                 nDebreifQuestions = 0;
@@ -356,30 +359,56 @@ public class ExperimentConfig
         {
             case "mturk2D_peanutmartini_v2d2":   //----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
                                                  //----Transfer block 1
-                Debug.Log("Inside the experimentVersion");                               //----Training block 1
-                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                Debug.Log("Inside the experimentVersion");
+
+                //----Training block 1
+                nextTrial = AddTrainingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 2
-                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = AddTrainingBlock_v2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 3
-                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                nextTrial = AddTrainingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 4
-                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = AddTrainingBlock_v2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
 
-                //---- training block 5
-                nextTrial = AddTrainingBlockDay2_switch(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                ////---- training block 5
+                nextTrial = AddTrainingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
 
                 ////---- training block 6
-                nextTrial = AddTrainingBlockDay2(nextTrial);
+                nextTrial = AddTrainingBlock_v2(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
 
+                ////---- testing block 1
+                nextTrial = AddTestingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
+
+                ////---- testing block 2
+                nextTrial = AddTestingBlock_v2_switch(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                ////---- testing block 3
+                nextTrial = AddTestingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
+
+                ////---- testing block 4
+                nextTrial = AddTestingBlock_v2_switch(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                ////---- testing block 5
+                nextTrial = AddTestingBlock_v2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
+
+                ////---- testing block 6
+                nextTrial = AddTestingBlock_v2_switch(nextTrial);
                 break;
+
             case "scannertask_cheese":
 
                 // shuffled contexts for 2 runs
@@ -447,15 +476,15 @@ public class ExperimentConfig
                 nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 2
-                nextTrial = AddTrainingBlockDay2(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 3
-                nextTrial = AddTrainingBlockDay2(nextTrial);
-                nextTrial = RestBreakHere(nextTrial);
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
 
                 //---- training block 4
-                nextTrial = AddTrainingBlockDay2(nextTrial);
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
 
                 break;
             //AP----
@@ -520,7 +549,7 @@ public class ExperimentConfig
 
             case "micro2D_debug":            // ----Mini debugging test experiment-----
 
-                nextTrial = AddTrainingBlock_micro(nextTrial, nExecutedTrials); 
+                nextTrial = AddTrainingBlock_micro(nextTrial, nExecutedTrials);
                 break;
 
             default:
@@ -1162,8 +1191,46 @@ public class ExperimentConfig
         return nextTrial;
     }
 
-
     private int AddTrainingBlockDay2(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+        //int firstTrial = nextTrial;
+        if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+        }
+        else
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+        }
+
+        return nextTrial;
+    }
+
+
+    private int AddTrainingBlock_v2(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+        //int firstTrial = nextTrial;
+        if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+        }
+        else
+        {
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+        }
+
+        return nextTrial;
+    }
+
+    private int AddTestingBlock_v2(int nextTrial)
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         bool freeForageFLAG = false;
@@ -1183,7 +1250,7 @@ public class ExperimentConfig
         return nextTrial;
     }
 
-    private int AddTrainingBlockDay2_switch(int nextTrial)
+    private int AddTestingBlock_v2_switch(int nextTrial)
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
         bool freeForageFLAG = false;
@@ -1498,7 +1565,7 @@ public class ExperimentConfig
 
         string startRoom;
         int contextSide;
-        int blockLength = 8; // Specify the next 8 trials
+        int blockLength = 4; // Specify the next 8 trials
         string[] controlType = new string[2] { "Human", "Human"};  // default: control remains human the whole time
         bool controlCorrect = true;                                // default: static
 
@@ -2053,7 +2120,7 @@ public class ExperimentConfig
                 }
                 freeForage[trial] = false;
                 //AP maxMovementTime[trial] = 50.0f;        // 1 min to collect just the 2 rewards on covariance trials ***HRS changed from 60 on 4/06/2019
-                maxMovementTime[trial] = 60.0f;
+                maxMovementTime[trial] = 1.0f;
                 blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];
