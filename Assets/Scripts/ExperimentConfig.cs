@@ -2120,7 +2120,7 @@ public class ExperimentConfig
                 }
                 freeForage[trial] = false;
                 //AP maxMovementTime[trial] = 50.0f;        // 1 min to collect just the 2 rewards on covariance trials ***HRS changed from 60 on 4/06/2019
-                maxMovementTime[trial] = 1.0f;
+                maxMovementTime[trial] = 60.0f;
                 blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
                 hallwayFreezeTime[trial] = new float[4];
                 goalHitPauseTime[trial] = new float[4];
