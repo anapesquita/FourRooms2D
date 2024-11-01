@@ -385,7 +385,8 @@ public class GameController : MonoBehaviour
 
             case STATE_GOALAPPEAR:
                 // display the reward type cue
-                displayCue = true;
+                // displayCue = true;
+                displayCue = false;
                 if (stateTimer.ElapsedSeconds() > displayCueTime)
                 {
                     displayCue = false;
