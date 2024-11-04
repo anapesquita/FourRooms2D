@@ -198,6 +198,9 @@ public class GameController : MonoBehaviour
 
     private bool gameStarted = false;
 
+
+
+
     // ********************************************************************** //
 
     void Awake()           // Awake() executes once before anything else
@@ -385,8 +388,8 @@ public class GameController : MonoBehaviour
 
             case STATE_GOALAPPEAR:
                 // display the reward type cue
-                // displayCue = true;
-                displayCue = false;
+                displayCue = true;
+                //displayCue = false;
                 if (stateTimer.ElapsedSeconds() > displayCueTime)
                 {
                     displayCue = false;
