@@ -110,6 +110,8 @@ public class GameController : MonoBehaviour
     public bool displayTimeLeft;
     public float firstFrozenTime;
     public float debriefResponseTime;
+    const float nonRewardPauseTime = 10f; // Add this at top of class
+
 
     public float maxMovementTime;
     private float preDisplayCueTime;
@@ -139,6 +141,7 @@ public class GameController : MonoBehaviour
     public bool FLAG_dataWritingError;
     public bool FLAG_frameRateError;
     public bool FLAG_cliffFallError;
+    public bool FLAG_playErrorSound = false;
 
     public bool blankScreen = false;            // flag for indicating whether showing a between-trial blank screen
     public bool darkTintScreen = false;         // for indicating the darkened screen tint when traversing hallways
@@ -465,6 +468,13 @@ public class GameController : MonoBehaviour
                                 showCanvasReward = true;
                                 source.PlayOneShot(starFoundSound, 1F);
                             }
+                            else
+                            {
+                                if (!FLAG_playErrorSound) { 
+                                    source.PlayOneShot(errorSound, 1F);
+                                    FLAG_playErrorSound = true;
+                                }
+                            }
                         }
 
                         // turn off the reward and transition state
@@ -486,8 +496,12 @@ public class GameController : MonoBehaviour
                             }
                             else
                             {
-                                // there was no reward, so go back to previous moving state
-                                StateNext(previousState);
+                                // Non-reward boulder - trigger pause state
+                                if (stateTimer.ElapsedSeconds() > (minDwellAtReward + preRewardAppearTime + nonRewardPauseTime))
+                                {
+                                    FLAG_playErrorSound = false;
+                                    StateNext(previousState);
+                                }
                             }
                             //blankScreen = false;
                             showCanvasReward = false;
@@ -924,24 +938,26 @@ public class GameController : MonoBehaviour
 
     public void CheckFullScreen()
     {
+        return;
+
         // Check if playing in fullscreen mode. If not, give warning until we're back in full screen.
-        if (!Screen.fullScreen)
-        {
-            if (State != STATE_STARTSCREEN)
-            {
-                // if we're in the middle of the experiment, send them a warning and restart the trial
-                FLAG_fullScreenModeError = true;
-                displayMessage = "notFullScreenError";
-                StateNext(STATE_PAUSE);
-            }
-        }
-        else
-        {
-            if (FLAG_fullScreenModeError)  // they had exited fullscreen mode, but now its back to fullscreen :)
-            {
-                StateNext(STATE_ERROR);    // record that this error happened and restart the trial
-            }
-        }
+        //if (!Screen.fullScreen)
+        //{
+        //    if (State != STATE_STARTSCREEN)
+        //    {
+        //        // if we're in the middle of the experiment, send them a warning and restart the trial
+        //        FLAG_fullScreenModeError = true;
+        //        displayMessage = "notFullScreenError";
+        //        StateNext(STATE_PAUSE);
+        //    }
+        //}
+        //else
+        //{
+        //    if (FLAG_fullScreenModeError)  // they had exited fullscreen mode, but now its back to fullscreen :)
+        //    {
+        //        StateNext(STATE_ERROR);    // record that this error happened and restart the trial
+        //    }
+        //}
     }
 
     // ********************************************************************** //
@@ -1129,7 +1145,7 @@ public class GameController : MonoBehaviour
                 break;
 
             case "keepSearchingMessage":
-                textMessage = "Well done! \n There is one more martini to find.";
+                textMessage = "Well done! \n There is one more reward to find.";
                 //textMessage = "Super gemacht! Es gibt noch eine weitere Martini-Glas zu finden.";
                 if (messageTimer.ElapsedSeconds() > displayMessageTime)
                 {
@@ -1341,10 +1357,11 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
-    public void LiftingBoulder() 
+    public void LiftingBoulder()
     {
-        boulderLifted = true; 
+        boulderLifted = true;
     }
+
 
     // ********************************************************************** //
 

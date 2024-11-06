@@ -127,8 +127,8 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
-        experimentVersion = "mturk2D_peanutmartini_v2d2";
-        //experimentVersion = "mturk2D_cheese_v1";
+        //experimentVersion = "mturk2D_peanutmartini_v2d2";
+        experimentVersion = "mturk2D_cheese_v1";
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
@@ -286,11 +286,11 @@ public class ExperimentConfig
         //maxMovementTime        = 60.0f;   // changed to be a function of trial number. Time allowed to collect both rewards, incl. wait after hitting first one
         preDisplayCueTime = 0.2f;   // 2.5f;    //  Decode representation of room prior to cue here
         displayCueTime = 1.5f;       //1.5f;
-        goCueDelay = 0.2f; //1.0f;    //
+        goCueDelay = 0.1f; //1.0f;    //
         //goalHitPauseTime       = 1.0f;      // This will also be the amount of time between computer vs human control handovers (+ minDwellAtReward + preRewardAppearTime)
         //AP finalGoalHitPauseTime  = 1f;
         finalGoalHitPauseTime  = 1.0f; //5f;
-        minDwellAtReward       = 0.2f;
+        minDwellAtReward       = 0.1f;
         preRewardAppearTime    = 0.2f;      // I think this needs to be jittered to separate neural signals for same room diff states under a consistent policy
         displayMessageTime = 1.0f; //1.5f;     
         errorDwellTime = 1.1f; //1.5f;    // Note: should be at least as long as displayMessageTime
@@ -1213,14 +1213,26 @@ public class ExperimentConfig
 
     private int AddRevLearnBlock_v1(int nextTrial)
     {
-        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        // Add a 16 trial training block to the trial list
         bool freeForageFLAG = false;
-        //int firstTrial = nextTrial;
 
-        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", 0, freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", 1, freeForageFLAG);
-        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", 2, freeForageFLAG);
+        // Create array of covariance values and shuffle them
+        int[] covarianceOrder = new int[] { 0, 1, 2 };
 
+        // Fisher-Yates shuffle algorithm
+        for (int i = covarianceOrder.Length - 1; i > 0; i--)
+        {
+            int randomIndex = rand.Next(0, i + 1);
+            // Swap
+            int temp = covarianceOrder[i];
+            covarianceOrder[i] = covarianceOrder[randomIndex];
+            covarianceOrder[randomIndex] = temp;
+        }
+
+        // Apply the randomized covariance values in sequence
+        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", covarianceOrder[0], freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", covarianceOrder[1], freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock_rev(nextTrial, "cheese", covarianceOrder[2], freeForageFLAG);
 
         return nextTrial;
     }

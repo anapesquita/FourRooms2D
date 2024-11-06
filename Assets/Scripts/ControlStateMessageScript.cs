@@ -26,7 +26,8 @@ public class ControlStateMessageScript : MonoBehaviour
             if ((GameController.control.State == GameController.STATE_SHOWREWARD))
             {
                 {
-                    controlStateMessage = "";
+                    controlStateMessage = "[Pause]";
+                    screenMessage.color = Color.grey;
                 }
             }
             else 
@@ -36,9 +37,6 @@ public class ControlStateMessageScript : MonoBehaviour
                     case GameController.CONTROL_HUMAN:
                         //AP --
                         controlStateMessage = "[Play]";
-                        // -- AP
-                        //controlStateMessage = "[Your turn]";
-                        //controlStateMessage = "[Du bist dran]";
                         screenMessage.color = Color.green;
                         break;
                     case GameController.CONTROL_COMPUTER:
