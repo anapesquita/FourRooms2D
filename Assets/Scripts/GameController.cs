@@ -200,7 +200,7 @@ public class GameController : MonoBehaviour
     private int bouldersExplored = 0;
 
     private bool gameStarted = false;
-
+    private bool pauseError = false;
 
 
 
@@ -470,6 +470,7 @@ public class GameController : MonoBehaviour
                             }
                             else
                             {
+
                                 if (!FLAG_playErrorSound) { 
                                     source.PlayOneShot(errorSound, 1F);
                                     FLAG_playErrorSound = true;
@@ -496,8 +497,17 @@ public class GameController : MonoBehaviour
                             }
                             else
                             {
-                                // Non-reward boulder - trigger pause state
-                                if (stateTimer.ElapsedSeconds() > (minDwellAtReward + preRewardAppearTime + nonRewardPauseTime))
+
+                                if (pauseError)
+                                {
+                                    // Non-reward boulder - trigger pause state
+                                    if (stateTimer.ElapsedSeconds() > (minDwellAtReward + preRewardAppearTime + nonRewardPauseTime))
+                                    {
+                                        FLAG_playErrorSound = false;
+                                        StateNext(previousState);
+                                    }
+                                }
+                                else
                                 {
                                     FLAG_playErrorSound = false;
                                     StateNext(previousState);
