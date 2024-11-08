@@ -200,7 +200,7 @@ public class GameController : MonoBehaviour
     private int bouldersExplored = 0;
 
     private bool gameStarted = false;
-    private bool pauseError = false;
+    private bool pauseError = true;
 
 
 
