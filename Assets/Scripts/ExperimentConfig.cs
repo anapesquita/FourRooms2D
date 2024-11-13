@@ -127,14 +127,16 @@ public class ExperimentConfig
     {
         // Experiments with training blocked by context
 
-        //experimentVersion = "mturk2D_peanutmartini_v2d2";
-        experimentVersion = "mturk2D_cheese_v1";
+        
+        experimentVersion = "nav2D_reversal_2cues";
+        //experimentVersion = "nav2D_probablistic";
+        //experimentVersion = "micro2D_debug_keys";
+
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";
         //experimentVersion = "mturk2D_peanutmartini";
         //experimentVersion = "mturk2D_cheesewatermelon_wackycolours";
         //experimentVersion = "mturk2D_peanutmartini_wackycolours";
-        //experimentVersion = "micro2D_debug"; 
         //experimentVersion = "scannertask_cheese";   // be careful with adding extra practice trials between scan runs though (dont have extra practice)
         //experimentVersion = "scannertask_peanut";   // HRS used for training on day1, so do not use for testing in scanner
         //experimentVersion = "scannertask_banana";
@@ -215,7 +217,7 @@ public class ExperimentConfig
                 transferCounterbalance = false;
                 break;
 
-            case "mturk2D_cheese_v1":       // ----Full 4 block learning experiment day 2-----
+            case "nav2D_probablistic":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 3 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
@@ -224,7 +226,7 @@ public class ExperimentConfig
                 transferCounterbalance = false;
                 break;
 
-            case "mturk2D_peanutmartini_v2d2":       // ----Full 4 block learning experiment day 2-----
+            case "nav2D_reversal_2cues":       // ----Full 4 block learning experiment day 2-----
 
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
@@ -255,10 +257,10 @@ public class ExperimentConfig
                 wackyColours = true;
                 break;
 
-            case "micro2D_debug":            // ----Mini debugging test experiment-----
+            case "micro2D_debug_keys":            // ----Mini debugging test experiment-----
                 nDebreifQuestions = 0;
                 practiceTrials = 0 + getReadyTrial;
-                nExecutedTrials = 1;                                         // note that this is only used for the micro_debug version
+                nExecutedTrials = 4;                                         // note that this is only used for the micro_debug version
                 totalTrials = nExecutedTrials + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 4 + restbreakOffset;                            // Take a rest after this many normal trials
                 restbreakDuration = 5.0f;                                       // how long are the imposed rest breaks?
@@ -367,7 +369,7 @@ public class ExperimentConfig
         // Define the full trial sequence
         switch (experimentVersion)
         {
-            case "mturk2D_cheese_v1":
+            case "nav2D_probablistic":
 
                 nextTrial = AddRevLearnBlock_v1(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
@@ -376,7 +378,7 @@ public class ExperimentConfig
               
                 break;
 
-            case "mturk2D_peanutmartini_v2d2":   //----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
+            case "nav2D_reversal_2cues":   //----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
                                                  //----Transfer block 1
                 Debug.Log("Inside the experimentVersion");
 
@@ -548,7 +550,7 @@ public class ExperimentConfig
 
                 break;
 
-            case "micro2D_debug":            // ----Mini debugging test experiment-----
+            case "micro2D_debug_keys":            // ----Mini debugging test experiment-----
 
                 nextTrial = AddTrainingBlock_micro(nextTrial, nExecutedTrials);
                 break;
@@ -563,6 +565,11 @@ public class ExperimentConfig
         // For debugging: print out the final trial sequence in readable text to check it looks ok
         PrintTrialSequence();
 
+    }
+
+    public string GetExperimentVersion()
+    {
+        return experimentVersion;
     }
 
     // ********************************************************************** //
@@ -1403,7 +1410,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
 
-        nextTrial = DoubleRewardBlock_micro(nextTrial, "watermelon", 0,numberOfTrials);
+        nextTrial = DoubleRewardBlock_micro(nextTrial, "pineapple", 0,numberOfTrials);
 
         return nextTrial;
     }

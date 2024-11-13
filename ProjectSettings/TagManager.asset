@@ -7,6 +7,7 @@ TagManager:
   - boulder
   - reward
   - bridge
+  - Star2Panel
   layers:
   - Default
   - TransparentFX

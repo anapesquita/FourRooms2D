@@ -146,6 +146,9 @@ public class GameController : MonoBehaviour
     public bool blankScreen = false;            // flag for indicating whether showing a between-trial blank screen
     public bool darkTintScreen = false;         // for indicating the darkened screen tint when traversing hallways
 
+    private EndPanelController endPanelController;
+    public float panelDisplayTime = 5f;  // How long to show the panel
+
     // Game-play state machine states
     public const int STATE_STARTSCREEN = 0;
     public const int STATE_SETUP = 1;
@@ -170,13 +173,14 @@ public class GameController : MonoBehaviour
     public const int STATE_HALLFREEZE = 20;
     public const int STATE_DEBRIEF = 21;
     public const int STATE_EXIT = 22;
-    public const int STATE_MAX = 23;
+    public const int STATE_SHOW_PANEL = 23;
+    public const int STATE_MAX = 24;  
 
     // Computer/human control states
     public const string CONTROL_HUMAN = "Human";
     public const string CONTROL_COMPUTER = "Computer";
 
-    private string[] stateText = new string[] { "StartScreen", "Setup", "BlankScreen", "StartTrial", "GoalAppear", "Delay", "Go", "Moving1", "ShowReward", "FirstGoalHit", "Moving2", "FinalGoalHit", "Finish", "NextTrial", "InterTrial", "Timeout", "Error", "Rest", "GetReady", "Pause", "HallwayFreeze", "Debrief", "Exit", "Max" };
+    private string[] stateText = new string[] { "StartScreen", "Setup", "BlankScreen", "StartTrial", "GoalAppear", "Delay", "Go", "Moving1", "ShowReward", "FirstGoalHit", "Moving2", "FinalGoalHit", "Finish", "NextTrial", "InterTrial", "Timeout", "Error", "Rest", "GetReady", "Pause", "HallwayFreeze", "Debrief", "Exit", "ShowPanel", "Max" };
     public int State;
     public int previousState;     // Note that this currently is not thoroughly used - currently only used for transitioning back from the STATE_HALLFREEZE to the previous gameplay
     public List<string> stateTransitions = new List<string>();   // recorded state transitions (in sync with the player data)
@@ -201,7 +205,7 @@ public class GameController : MonoBehaviour
 
     private bool gameStarted = false;
     private bool pauseError = true;
-
+    private string experimentVersion;  
 
 
     // ********************************************************************** //
@@ -222,11 +226,15 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
+
+
     private void Start()     // Start() executes once when object is created
     {
-        dataController = FindObjectOfType<DataController>(); //usually be careful with 'Find' but in this case should be ok. Ok this fetches the instance of DataController, dataController.
+        dataController = FindObjectOfType<DataController>();
+        experimentVersion = dataController.GetExperimentVersion();
         source = GetComponent<AudioSource>();
         frameRateMonitor = GetComponent<FramesPerSecond>();
+
 
         // Trial invariant data
         filepath = dataController.filePath;   //this works because we actually have an instance of dataController
@@ -572,27 +580,52 @@ public class GameController : MonoBehaviour
                 break;
 
             case STATE_STAR2FOUND:
+                displayTimeLeft = false;
 
-                // This is the state when the FINAL reward to be collected is found (in the case of 2 or multiple rewards)
-                displayTimeLeft = false;             // freeze the visible countdown
-
-                //if (stateTimer.ElapsedSeconds() > goalHitPauseTime[bouldersExplored])
-                //{
-                    CongratulatePlayer(); // display a big congratulatory message
+                if (!congratulated)  // Only show these once
+                {
+                    CongratulatePlayer();
                     ShowPointsPlayer();
-                    Debug.Log("Called CongratulatedPlayer and ShowPointsPlayer");
-                //}
-
-                if (stateTimer.ElapsedSeconds() > beforeScoreUpdateTime)
-                {
-                    UpdateScore();  // update the total score and flash it on the screen
+                    Debug.Log("Showing congratulations and points");
                 }
-                if (stateTimer.ElapsedSeconds() > finalGoalHitPauseTime) // we get an extra neural signal in this state
+
+                if (stateTimer.ElapsedSeconds() > beforeScoreUpdateTime && !scoreUpdated)
                 {
+                    UpdateScore();
+                    Debug.Log("Score updated");
+                }
+
+                if (stateTimer.ElapsedSeconds() > finalGoalHitPauseTime)
+                {
+                    Debug.Log("Checking experiment version for panel transition");
+                    if (experimentVersion == "micro2D_debug")
+                    {
+                        Debug.Log("Debug version - showing panel");
+                        StateNext(STATE_SHOW_PANEL);
+                    }
+                    else
+                    {
+                        Debug.Log("Non-debug version - skipping panel");
+                        StateNext(STATE_FINISH);
+                    }
                     flashTotalScore = false;
                     flashCongratulations = false;
                     flashPoints = false;
-                    StateNext(STATE_FINISH);
+                }
+                break;
+
+            // Add the new state case in the Update() switch statement:
+            case STATE_SHOW_PANEL:
+                Debug.Log($"STATE_SHOW_PANEL: Timer: {stateTimer.ElapsedSeconds()}");
+
+                if (endPanelController != null)
+                {
+                    endPanelController.ShowPanel();
+                    Debug.Log("Called ShowPanel on EndPanelController");
+                }
+                else
+                {
+                    Debug.LogError("No EndPanelController registered!");
                 }
                 break;
 
@@ -797,6 +830,12 @@ public class GameController : MonoBehaviour
         controlStateIndex = 0;
         bouldersExplored = 0;
 
+        if (endPanelController != null)
+        {
+            endPanelController.HidePanel();
+        }
+
+
         for (int i = 0; i < scaleUpReward.Length; i++)
         {
             scaleUpReward[i] = false;
@@ -840,6 +879,8 @@ public class GameController : MonoBehaviour
         displayMessageTime = currentTrialData.displayMessageTime;
         errorDwellTime = currentTrialData.errorDwellTime;
         rewardType = currentTrialData.rewardType;
+        Debug.Log("---->>>> REWARD TYPE");
+        Debug.Log(rewardType);
         hallwayFreezeTime = currentTrialData.hallwayFreezeTime;
         preFreezeTime = currentTrialData.preFreezeTime;
         minTimeBetweenMoves = currentTrialData.minTimeBetweenMoves;
@@ -919,6 +960,8 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
+    
+
     public void StartGame()
     {
         Debug.Log("The game has started now and into the FSM!");
@@ -926,10 +969,26 @@ public class GameController : MonoBehaviour
         scannerTriggerTimes.Add(experimentTimer.ElapsedSeconds());  // should be 0.00f seconds
         NextScene();
         gameStarted = true;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     // ********************************************************************** //
+
+    // Add these methods to handle button clicks
+    public void OnContinueFromPanel()
+    {
+        Debug.Log("Handling continue from panel");
+        StateNext(STATE_FINISH);
+    }
+
+    public void OnRestartFromPanel()
+    {
+        Debug.Log("Handling restart from panel");
+        // Reset necessary variables
+        FLAG_trialError = true;  // This will make it restart the current trial
+        StateNext(STATE_ERROR);
+    }
+
 
     public void ContinueToNextMenuScreen()
     {
@@ -1055,9 +1114,38 @@ public class GameController : MonoBehaviour
             State = state;
             stateTimer.Reset();   // start counting how much time we're in this new state
         }
+
     }
 
+
     // ********************************************************************** //
+
+    public void RegisterEndPanelController(EndPanelController controller)
+    {
+        Debug.Log("EndPanelController registered with GameController");
+        endPanelController = controller;
+    }
+
+    public void OnSilverKeyFromPanel()
+    {
+        Debug.Log($"Processing Silver Key - Current trial score: {trialScore}");
+        // Double the points for this trial
+        trialScore *= 2;
+        totalScore += trialScore;  // Add the extra points to total
+
+        Debug.Log($"Silver Key processed - New trial score: {trialScore}, New total score: {totalScore}");
+    }
+
+    public void OnGoldKeyFromPanel()
+    {
+        Debug.Log($"Processing Gold Key - Current trial score: {trialScore}");
+        // Remove the trial points from total score
+        totalScore -= trialScore;
+        trialScore = 0;  // Set trial score to 0
+
+        Debug.Log($"Gold Key processed - New trial score: {trialScore}, New total score: {totalScore}");
+    }
+
 
     public void SwitchControlState() 
     {
@@ -1289,8 +1377,9 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
+    // Modify the UpdateScore method to not add the trial score to total immediately
     public void UpdateScore()
-    {   // Note that these bools are read in the script TotalScoreUpdateScript.cs
+    {
         if (currentTrialData.mapName != "Practice") // Don't count the practice trials
         {
             if (!scoreUpdated)  // just do this once per trial
@@ -1299,25 +1388,19 @@ public class GameController : MonoBehaviour
 
                 if (State == STATE_ERROR)  // take off 20 points for a mistrial
                 {
-                    if (!((FLAG_dataWritingError || FLAG_fullScreenModeError) || (FLAG_frameRateError)))  // don't penalize internet connection or writing errors or framerate errors
+                    if (!((FLAG_dataWritingError || FLAG_fullScreenModeError) || (FLAG_frameRateError)))
                     {
                         trialScore = -20;
-                        //trialScore = 0;
                     }
                 }
-                else                       // increase the total score
+                else
                 {
                     trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
-                    //AP
-                    //trialScore = (int)Mathf.Round(50+((100-(totalMovementTime*100/maxMovementTime))/2));
-                    //AP
                 }
-                Debug.Log("Score updating.");
-                //AP
+
+                // Note: We're not adding to totalScore here anymore - it will be handled by the key selection
+                Debug.Log($"Trial score calculated: {trialScore}");
                 trialScoresList.Add(trialScore);
-                //totalScore = (int)Math.Round((trialScoresList.Sum(x => (double)x)) / (trialScoresList.Count), 2);
-                //AP
-                totalScore += trialScore;
                 scoreUpdated = true;
                 flashTotalScore = true;
             }

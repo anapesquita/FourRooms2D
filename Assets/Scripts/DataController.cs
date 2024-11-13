@@ -131,21 +131,21 @@ public class DataController : MonoBehaviour {
 
     // ********************************************************************** //
 
-    IEnumerator WaitForRequest(WWW data)
-    {
-        // writingDataProperly = true;
+    //IEnumerator WaitForRequest(data)
+    //{
+    //    // writingDataProperly = true;
 
-        yield return data;
-        if (data.error != null)
-        {
-            writingDataProperly = false;
-        }
-        else
-        {
-            Debug.Log(data.text);
-            writingDataProperly = true;
-        }
-    }
+    //    yield return data;
+    //    if (data.error != null)
+    //    {
+    //        writingDataProperly = false;
+    //    }
+    //    else
+    //    {
+    //        Debug.Log(data.text);
+    //        writingDataProperly = true;
+    //    }
+    //}
 
     // ********************************************************************** //
 
@@ -368,6 +368,18 @@ public class DataController : MonoBehaviour {
     // ********************************************************************** //
     /// Get() and Set() Methods
     // ********************************************************************** //
+    public string GetExperimentVersion()
+    {
+        if (gameData != null && !string.IsNullOrEmpty(gameData.experimentVersion))
+        {
+            return gameData.experimentVersion;
+        }
+        else
+        {
+            Debug.LogWarning("Experiment version not available, defaulting to non-debug");
+            return "default";  // or whatever your non-debug version name is
+        }
+    }
 
     public GameData GetGameData()
     {
