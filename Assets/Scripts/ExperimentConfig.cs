@@ -128,9 +128,9 @@ public class ExperimentConfig
         // Experiments with training blocked by context
 
         
-        experimentVersion = "nav2D_reversal_2cues";
+        //experimentVersion = "nav2D_reversal_2cues";
         //experimentVersion = "nav2D_probablistic";
-        //experimentVersion = "micro2D_debug_keys";
+        experimentVersion = "micro2D_debug_keys";
 
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";

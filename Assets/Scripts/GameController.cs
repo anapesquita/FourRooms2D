@@ -204,7 +204,7 @@ public class GameController : MonoBehaviour
     private int bouldersExplored = 0;
 
     private bool gameStarted = false;
-    private bool pauseError = true;
+    //private bool pauseError = false;
     private string experimentVersion;  
 
 
@@ -506,7 +506,7 @@ public class GameController : MonoBehaviour
                             else
                             {
 
-                                if (pauseError)
+                                if (experimentVersion == "nav2D_probablistic")
                                 {
                                     // Non-reward boulder - trigger pause state
                                     if (stateTimer.ElapsedSeconds() > (minDwellAtReward + preRewardAppearTime + nonRewardPauseTime))
@@ -598,7 +598,7 @@ public class GameController : MonoBehaviour
                 if (stateTimer.ElapsedSeconds() > finalGoalHitPauseTime)
                 {
                     Debug.Log("Checking experiment version for panel transition");
-                    if (experimentVersion == "micro2D_debug")
+                    if (experimentVersion == "micro2D_debug_keys")
                     {
                         Debug.Log("Debug version - showing panel");
                         StateNext(STATE_SHOW_PANEL);
