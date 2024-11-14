@@ -15,12 +15,12 @@ public class EndPanelController : MonoBehaviour
     private bool initialized = false;
     private bool messageSet = false; // Add this flag
 
-    
-
     void Start()
     {
         ValidateComponents();
     }
+
+
 
     private void OnSilverKeyClicked()
     {
@@ -31,6 +31,7 @@ public class EndPanelController : MonoBehaviour
         // Set text and ensure it persists
         messageSet = true;
         scoreText.text = "Points doubled!";
+        scoreText.color = Color.green;
         Debug.Log("Set text to: Points doubled!");
 
         gameController.OnSilverKeyFromPanel();
@@ -46,6 +47,8 @@ public class EndPanelController : MonoBehaviour
         // Set text and ensure it persists
         messageSet = true;
         scoreText.text = "Points lost!";
+        scoreText.color = Color.red;
+
         Debug.Log("Set text to: Points lost!");
 
         gameController.OnGoldKeyFromPanel();

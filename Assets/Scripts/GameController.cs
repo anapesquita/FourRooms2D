@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
     public AudioClip openBoxSound;
     public AudioClip movementSound;
     private AudioSource source;
+    
 
     // Messages to the screen
     public string displayMessage = "noMessage";
@@ -989,7 +990,7 @@ public class GameController : MonoBehaviour
         StateNext(STATE_ERROR);
     }
 
-
+  
     public void ContinueToNextMenuScreen()
     {
         NextScene();

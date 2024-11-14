@@ -3,7 +3,17 @@ guid: f9b9a6fb1a1ab42b89c3aa27eda738e4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - starFoundSound: {instanceID: 0}
+  - goCueSound: {instanceID: 0}
+  - errorSound: {instanceID: 0}
+  - fallSound: {instanceID: 0}
+  - openBoxSound: {instanceID: 0}
+  - movementSound: {instanceID: 0}
+  - buttonClickSound_Gold: {fileID: 8300000, guid: 8b1af13c6588e42a8ad97799fa067710,
+      type: 3}
+  - buttonClickSound_Silver: {fileID: 8300000, guid: f9ce0bd536f6f4244b7151c5ba3c341e,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
