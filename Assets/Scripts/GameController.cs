@@ -599,14 +599,14 @@ public class GameController : MonoBehaviour
                 if (stateTimer.ElapsedSeconds() > finalGoalHitPauseTime)
                 {
                     Debug.Log("Checking experiment version for panel transition");
-                    if (experimentVersion == "micro2D_debug_keys")
+                    if (experimentVersion == "nav2D_separation")
                     {
-                        Debug.Log("Debug version - showing panel");
+                        Debug.Log("showing panel");
                         StateNext(STATE_SHOW_PANEL);
                     }
                     else
                     {
-                        Debug.Log("Non-debug version - skipping panel");
+                        Debug.Log("skipping panel");
                         StateNext(STATE_FINISH);
                     }
                     flashTotalScore = false;
@@ -1127,9 +1127,23 @@ public class GameController : MonoBehaviour
         endPanelController = controller;
     }
 
+    // Add these modified methods to your GameController class:
+
     public void OnSilverKeyFromPanel()
     {
         Debug.Log($"Processing Silver Key - Current trial score: {trialScore}");
+
+        // Get current trial data and record choice
+        if (currentTrialData != null)
+        {
+            currentTrialData.keyChoice = "silver";
+            string currentScene = SceneManager.GetActiveScene().name.ToLower();
+            bool isAvocadoOrMushroom = currentScene.Contains("avocado") || currentScene.Contains("mushroom");
+            bool isBananaOrPineapple = currentScene.Contains("banana") || currentScene.Contains("pineapple");
+
+            currentTrialData.wasKeyChoiceSuccessful = isAvocadoOrMushroom || (!isBananaOrPineapple);
+        }
+
         // Double the points for this trial
         trialScore *= 2;
         totalScore += trialScore;  // Add the extra points to total
@@ -1140,6 +1154,18 @@ public class GameController : MonoBehaviour
     public void OnGoldKeyFromPanel()
     {
         Debug.Log($"Processing Gold Key - Current trial score: {trialScore}");
+
+        // Get current trial data and record choice
+        if (currentTrialData != null)
+        {
+            currentTrialData.keyChoice = "gold";
+            string currentScene = SceneManager.GetActiveScene().name.ToLower();
+            bool isAvocadoOrMushroom = currentScene.Contains("avocado") || currentScene.Contains("mushroom");
+            bool isBananaOrPineapple = currentScene.Contains("banana") || currentScene.Contains("pineapple");
+
+            currentTrialData.wasKeyChoiceSuccessful = isBananaOrPineapple || (!isAvocadoOrMushroom);
+        }
+
         // Remove the trial points from total score
         totalScore -= trialScore;
         trialScore = 0;  // Set trial score to 0
@@ -1147,7 +1173,7 @@ public class GameController : MonoBehaviour
         Debug.Log($"Gold Key processed - New trial score: {trialScore}, New total score: {totalScore}");
     }
 
-
+  
     public void SwitchControlState() 
     {
         // allow our incremented control state index to wrap around the control order array

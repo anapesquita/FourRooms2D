@@ -130,7 +130,8 @@ public class ExperimentConfig
         
         //experimentVersion = "nav2D_reversal_2cues";
         //experimentVersion = "nav2D_probablistic";
-        experimentVersion = "micro2D_debug_keys";
+        //experimentVersion = "micro2D_debug_keys";
+        experimentVersion = "nav2D_separation";
 
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";
@@ -213,6 +214,15 @@ public class ExperimentConfig
                 practiceTrials = 2 + getReadyTrial;
                 totalTrials = 16 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 + restbreakOffset;                               // Take a rest after this many normal trials
+                restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
+                transferCounterbalance = false;
+                break;
+
+            case "nav2D_separation":       // ----Full 4 block learning experiment day 2-----
+                nDebreifQuestions = 0;
+                practiceTrials = 2 + getReadyTrial;
+                totalTrials = 8 * 4 *  2 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                restFrequency = 64 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;
                 break;
@@ -477,6 +487,28 @@ public class ExperimentConfig
                                            //---- training block 1
                 nextTrial = AddTrainingBlockDay2(nextTrial);
                 nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 2
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 3
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
+                //nextTrial = RestBreakHere(nextTrial);
+
+                //---- training block 4
+                //nextTrial = AddTrainingBlockDay2(nextTrial);
+
+                break;
+            //AP----
+
+            case "nav2D_separation":  // ----To be performed day after learning experiment: 4 block transfer experiment (1hr)-----
+                                           //---- transfer block 1
+                                           //---- training block 1
+                nextTrial = AddTrainingBlock_separation(nextTrial);
+                nextTrial = RestBreakHere(nextTrial);
+
+                nextTrial = AddTestingBlock_separation(nextTrial);
 
                 //---- training block 2
                 //nextTrial = AddTrainingBlockDay2(nextTrial);
@@ -1199,6 +1231,36 @@ public class ExperimentConfig
         return nextTrial;
     }
 
+    private int AddTrainingBlock_separation(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+        //int firstTrial = nextTrial;
+
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "pineapple", 1, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "banana", 0, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "mushroom", 1, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "avocado", 0, freeForageFLAG);
+
+        return nextTrial;
+    }
+
+    private int AddTestingBlock_separation(int nextTrial)
+    {
+        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
+        bool freeForageFLAG = false;
+        int firstTrial = nextTrial;
+
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "pineapple", 1, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "banana", 0, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "mushroom", 1, freeForageFLAG);
+        nextTrial = SingleContextDoubleRewardBlock(nextTrial, "avocado", 0, freeForageFLAG);
+
+        ReshuffleTrialOrder(firstTrial, nextTrial - firstTrial);
+
+        return nextTrial;
+    }
+
     private int AddTrainingBlockDay2(int nextTrial)
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
@@ -1207,7 +1269,9 @@ public class ExperimentConfig
         if (rand.Next(2) == 0)   // randomise whether the watermelon or cheese sub-block happens first
         {
             nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
-            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 1, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "peanut", 0, freeForageFLAG);
+            nextTrial = SingleContextDoubleRewardBlock(nextTrial, "martini", 1, freeForageFLAG);
         }
         else
         {
@@ -1410,7 +1474,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
 
-        nextTrial = DoubleRewardBlock_micro(nextTrial, "pineapple", 0,numberOfTrials);
+        nextTrial = DoubleRewardBlock_micro(nextTrial, "banana", 0,numberOfTrials);
 
         return nextTrial;
     }

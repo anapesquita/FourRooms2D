@@ -35,7 +35,7 @@ public class TrialData
 
     // trial event times
     public float maxMovementTime;
-    public float trialScore; 
+    public float trialScore;
     public List<float> firstMovementTime = new List<float>();       // time until first star collected (kept as list to account for error trials)
     public List<float> totalMovementTime = new List<float>();       // time until second star collected
 
@@ -46,20 +46,20 @@ public class TrialData
     public float goCueDelay;
     public float minDwellAtReward;
     public float preRewardAppearTime;
-    public float displayMessageTime;    
+    public float displayMessageTime;
     public float errorDwellTime;
     public float[] goalHitPauseTime;
     public float finalGoalHitPauseTime;
     public float[] hallwayFreezeTime;     // jittered & different for each doorway
     public float preFreezeTime;
-    public float oneSquareMoveTime; 
+    public float oneSquareMoveTime;
     public float minTimeBetweenMoves;
     public float blankTime;               // jittered
     public float animationTime;
 
     // trial error flags
     public List<bool> FLAG_cliffFallError = new List<bool>();
-    public List<bool> FLAG_trialTimeout = new List<bool>();        
+    public List<bool> FLAG_trialTimeout = new List<bool>();
     public List<bool> FLAG_trialError = new List<bool>();
     public List<bool> FLAG_dataWritingError = new List<bool>();
     public List<bool> FLAG_fullScreenModeError = new List<bool>();
@@ -70,5 +70,9 @@ public class TrialData
     public List<string> timeStepTrackingData = new List<string>();
     public List<string> giftWrapStateTransitions = new List<string>();
     public List<string> controlStateTransitions = new List<string>();
+
+    // Key choice tracking
+    public string keyChoice = "";  // Will store "silver" or "gold"
+    public bool wasKeyChoiceSuccessful = false;  // Tracks if the chosen key resulted in doubled points
 
 }

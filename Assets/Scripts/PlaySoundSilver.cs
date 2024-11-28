@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlaySoundSilver : MonoBehaviour
 {
     [Header("Audio Settings")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip goldSound;
+    [SerializeField] private AudioClip positiveSound; // Sound for when points are doubled
+    [SerializeField] private AudioClip negativeSound; // Sound for when points are lost
     private float volumeMultiplier = 1f;
+    private bool isAvocadoOrMushroom = false;
+    private bool isBananaOrPineapple = false;
 
     // Reference to the button component
     private Button button;
@@ -29,8 +33,19 @@ public class PlaySoundSilver : MonoBehaviour
             }
         }
 
+        // Check scene type
+        CheckSceneType();
+
         // Add click listener
         button.onClick.AddListener(PlayClickSound);
+    }
+
+    private void CheckSceneType()
+    {
+        string currentScene = SceneManager.GetActiveScene().name.ToLower();
+        isAvocadoOrMushroom = currentScene.Contains("avocado") || currentScene.Contains("mushroom");
+        isBananaOrPineapple = currentScene.Contains("banana") || currentScene.Contains("pineapple");
+        Debug.Log($"Silver Button - Current scene: {currentScene}, IsAvocadoOrMushroom: {isAvocadoOrMushroom}, IsBananaOrPineapple: {isBananaOrPineapple}");
     }
 
     private void OnDestroy()
@@ -44,9 +59,29 @@ public class PlaySoundSilver : MonoBehaviour
 
     public void PlayClickSound()
     {
-        if (button.interactable && goldSound != null)
+        if (!button.interactable) return;
+
+        AudioClip soundToPlay = null;
+
+        if (isAvocadoOrMushroom)
         {
-            audioSource.PlayOneShot(goldSound, volumeMultiplier);
+            // Play positive sound for avocado/mushroom scenes
+            soundToPlay = positiveSound;
+        }
+        else if (isBananaOrPineapple)
+        {
+            // Play negative sound for banana/pineapple scenes
+            soundToPlay = negativeSound;
+        }
+        else
+        {
+            // Default to positive sound for other scenes
+            soundToPlay = positiveSound;
+        }
+
+        if (soundToPlay != null)
+        {
+            audioSource.PlayOneShot(soundToPlay, volumeMultiplier);
         }
     }
 

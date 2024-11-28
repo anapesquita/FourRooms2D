@@ -4600,7 +4600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  goldSound: {fileID: 8300000, guid: 8b1af13c6588e42a8ad97799fa067710, type: 3}
+  positiveSound: {fileID: 8300000, guid: f9ce0bd536f6f4244b7151c5ba3c341e, type: 3}
+  negativeSound: {fileID: 8300000, guid: 8b1af13c6588e42a8ad97799fa067710, type: 3}
 --- !u!1 &496498277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4736,7 +4737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  goldSound: {fileID: 8300000, guid: f9ce0bd536f6f4244b7151c5ba3c341e, type: 3}
+  positiveSound: {fileID: 8300000, guid: f9ce0bd536f6f4244b7151c5ba3c341e, type: 3}
+  negativeSound: {fileID: 8300000, guid: 8b1af13c6588e42a8ad97799fa067710, type: 3}
 --- !u!4 &532184698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6924345294433410383, guid: 196bfb754767646dfb0cc80de3c93869,

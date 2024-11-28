@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EndPanelController : MonoBehaviour
 {
@@ -13,14 +14,23 @@ public class EndPanelController : MonoBehaviour
     private float delayBeforeHide = 3f;
     private int originalTrialScore = 0;
     private bool initialized = false;
-    private bool messageSet = false; // Add this flag
+    private bool messageSet = false;
+    private bool isAvocadoOrMushroom = false;
+    private bool isBananaOrPineapple = false;
 
     void Start()
     {
         ValidateComponents();
+        CheckSceneType();
     }
 
-
+    private void CheckSceneType()
+    {
+        string currentScene = SceneManager.GetActiveScene().name.ToLower();
+        isAvocadoOrMushroom = currentScene.Contains("avocado") || currentScene.Contains("mushroom");
+        isBananaOrPineapple = currentScene.Contains("banana") || currentScene.Contains("pineapple");
+        Debug.Log($"Current scene: {currentScene}, IsAvocadoOrMushroom: {isAvocadoOrMushroom}, IsBananaOrPineapple: {isBananaOrPineapple}");
+    }
 
     private void OnSilverKeyClicked()
     {
@@ -28,13 +38,31 @@ public class EndPanelController : MonoBehaviour
         keySilverButton.interactable = false;
         keyGoldButton.interactable = false;
 
-        // Set text and ensure it persists
         messageSet = true;
-        scoreText.text = "Points doubled!";
-        scoreText.color = Color.green;
-        Debug.Log("Set text to: Points doubled!");
 
-        gameController.OnSilverKeyFromPanel();
+        if (isAvocadoOrMushroom)
+        {
+            // Double points for avocado/mushroom scenes
+            scoreText.text = "Points doubled!";
+            scoreText.color = Color.green;
+            gameController.OnSilverKeyFromPanel();
+        }
+        else if (isBananaOrPineapple)
+        {
+            // Lose points for banana/pineapple scenes
+            scoreText.text = "Points lost!";
+            scoreText.color = Color.red;
+            gameController.OnGoldKeyFromPanel();
+        }
+        else
+        {
+            // Default behavior for other scenes
+            scoreText.text = "Points doubled!";
+            scoreText.color = Color.green;
+            gameController.OnSilverKeyFromPanel();
+        }
+
+        Debug.Log($"Set text to: {scoreText.text}");
         StartCoroutine(DelayedHideAndTransition());
     }
 
@@ -44,14 +72,31 @@ public class EndPanelController : MonoBehaviour
         keySilverButton.interactable = false;
         keyGoldButton.interactable = false;
 
-        // Set text and ensure it persists
         messageSet = true;
-        scoreText.text = "Points lost!";
-        scoreText.color = Color.red;
 
-        Debug.Log("Set text to: Points lost!");
+        if (isAvocadoOrMushroom)
+        {
+            // Lose points for avocado/mushroom scenes
+            scoreText.text = "Points lost!";
+            scoreText.color = Color.red;
+            gameController.OnGoldKeyFromPanel();
+        }
+        else if (isBananaOrPineapple)
+        {
+            // Double points for banana/pineapple scenes
+            scoreText.text = "Points doubled!";
+            scoreText.color = Color.green;
+            gameController.OnSilverKeyFromPanel();
+        }
+        else
+        {
+            // Default behavior for other scenes
+            scoreText.text = "Points lost!";
+            scoreText.color = Color.red;
+            gameController.OnGoldKeyFromPanel();
+        }
 
-        gameController.OnGoldKeyFromPanel();
+        Debug.Log($"Set text to: {scoreText.text}");
         StartCoroutine(DelayedHideAndTransition());
     }
 
@@ -61,7 +106,6 @@ public class EndPanelController : MonoBehaviour
         if (endPanel != null)
         {
             endPanel.SetActive(true);
-            // Only set initial text if no message has been set by key clicks
             if (!messageSet)
             {
                 scoreText.text = "Choose a key!";
@@ -129,9 +173,6 @@ public class EndPanelController : MonoBehaviour
         Debug.Log("EndPanelController initialized successfully");
     }
 
-    
-
-
     public void HidePanel()
     {
         Debug.Log("HidePanel called on EndPanelController");
@@ -151,19 +192,18 @@ public class EndPanelController : MonoBehaviour
 
         Debug.Log($"UpdatePanelInfo called. Context: {context}");
 
-        string scoreMessage;  // Declare without initial value
+        string scoreMessage;
 
         if (context == "silver")
         {
-            scoreMessage = "Points doubled!";
+            scoreMessage = isAvocadoOrMushroom ? "Points doubled!" : "Points lost!";
         }
         else if (context == "gold")
         {
-            scoreMessage = "Points lost!";
+            scoreMessage = isBananaOrPineapple ? "Points doubled!" : "Points lost!";
         }
         else
         {
-            // Initial message when panel opens
             scoreMessage = "Choose a key!";
         }
 
@@ -174,15 +214,13 @@ public class EndPanelController : MonoBehaviour
     private IEnumerator DelayedHideAndTransition()
     {
         Debug.Log($"Starting delay before hide. Current text: {scoreText.text}");
-        // Add a small delay to ensure the message is visible
         yield return new WaitForSeconds(delayBeforeHide);
         Debug.Log("Delay complete, hiding panel");
-        messageSet = false; // Reset the flag
+        messageSet = false;
         HidePanel();
         gameController.StateNext(GameController.STATE_FINISH);
     }
 
-   
     private void OnDestroy()
     {
         if (keySilverButton != null)
