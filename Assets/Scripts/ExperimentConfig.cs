@@ -222,7 +222,7 @@ public class ExperimentConfig
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
                 totalTrials = 8 * 4 *  2 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
-                restFrequency = 64 + restbreakOffset;                               // Take a rest after this many normal trials
+                restFrequency = 32 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;
                 break;
