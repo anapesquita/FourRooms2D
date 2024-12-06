@@ -1425,8 +1425,13 @@ public class GameController : MonoBehaviour
                     trialScore = (int)Mathf.Round(maxMovementTime - totalMovementTime);
                 }
 
-                // Note: We're not adding to totalScore here anymore - it will be handled by the key selection
-                Debug.Log($"Trial score calculated: {trialScore}");
+                // Directly update totalScore for nav2D_probablistic
+                if (experimentVersion == "nav2D_probablistic")
+                {
+                    totalScore += trialScore;
+                    Debug.Log($"Trial score: {trialScore}, New total score: {totalScore}");
+                }
+
                 trialScoresList.Add(trialScore);
                 scoreUpdated = true;
                 flashTotalScore = true;

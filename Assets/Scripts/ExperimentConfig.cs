@@ -230,7 +230,7 @@ public class ExperimentConfig
             case "nav2D_probablistic":       // ----Full 4 block learning experiment day 2-----
                 nDebreifQuestions = 0;
                 practiceTrials = 2 + getReadyTrial;
-                totalTrials = 16 * 3 * 4 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
+                totalTrials = 16 * 3 * 2 + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
                 restFrequency = 16 * 3 + restbreakOffset;                               // Take a rest after this many normal trials
                 restbreakDuration = 30.0f;                                          // how long are the imposed rest breaks?
                 transferCounterbalance = false;

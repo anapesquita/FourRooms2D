@@ -15,6 +15,7 @@ public class TotalScoreUpdateScript : MonoBehaviour {
     {
         currentTotalScore = GameController.control.totalScore;
         TotalScore.text = currentTotalScore.ToString();
+        Debug.Log("-----UpdatedTotalScore:" + currentTotalScore);
         ScoreUpdate.fontSize = 108;
         TotalScore.fontSize = 108;
 
