@@ -80,6 +80,17 @@ public class PlayerController : MovingObject
             controlState = GameController.control.controlState; // only update this once per loop
             currentPlayerPosition = new Vector2(transform.position.x, transform.position.y);
 
+            // Add teleport check here
+            if (Math.Abs(currentPlayerPosition.x - 4f) < .05 &&
+                Math.Abs(currentPlayerPosition.y - 4f) < .05)
+            {
+                Debug.Log("TELEPORT TRIGGERED: Moving from top-right to bottom-left");
+                transform.position = new Vector3(-4f, -4f, transform.position.z);
+                currentPlayerPosition = new Vector2(-4f, -4f);
+                GameController.control.playerRoom = "blue";
+                GameController.control.MoveCamera(currentPlayerPosition);
+            }
+
             // HRS hack for the triggering issue of freeze states on bridges 
             // (linecasting means we have to enable/disable player collidor with movement, triggering freeze state again (if using colliders) whenever we try to move on bridge)
             if ((previousPlayerPosition - currentPlayerPosition).magnitude > stepTolerance)
