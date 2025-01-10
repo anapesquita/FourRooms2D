@@ -206,7 +206,10 @@ public class GameController : MonoBehaviour
 
     private bool gameStarted = false;
     //private bool pauseError = false;
-    private string experimentVersion;  
+    private string experimentVersion;
+
+    public Vector3 portalSpawnLocation = new Vector3(3f, 2f, 0f);
+
 
 
     // ********************************************************************** //

@@ -130,8 +130,8 @@ public class ExperimentConfig
         
         //experimentVersion = "nav2D_reversal_2cues";
         //experimentVersion = "nav2D_probablistic";
-        //experimentVersion = "micro2D_debug_keys";
-        experimentVersion = "nav2D_separation";
+        experimentVersion = "micro2D_debug_portal";
+        //experimentVersion = "nav2D_separation";
 
         //experimentVersion = "mturk2D_cheesewatermelon";     // ***HRS note that if you do wacky colours youll have to change the debrief question text which mentions room colours
         //experimentVersion = "mturk2D_day3_intermingled";
@@ -267,7 +267,7 @@ public class ExperimentConfig
                 wackyColours = true;
                 break;
 
-            case "micro2D_debug_keys":            // ----Mini debugging test experiment-----
+            case "micro2D_debug_portal":            // ----Mini debugging test experiment-----
                 nDebreifQuestions = 0;
                 practiceTrials = 0 + getReadyTrial;
                 nExecutedTrials = 4;                                         // note that this is only used for the micro_debug version
@@ -582,7 +582,7 @@ public class ExperimentConfig
 
                 break;
 
-            case "micro2D_debug_keys":            // ----Mini debugging test experiment-----
+            case "micro2D_debug_portal":            // ----Mini debugging test experiment-----
 
                 nextTrial = AddTrainingBlock_micro(nextTrial, nExecutedTrials);
                 break;
@@ -1474,7 +1474,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
 
-        nextTrial = DoubleRewardBlock_micro(nextTrial, "banana", 0,numberOfTrials);
+        nextTrial = DoubleRewardBlock_micro(nextTrial, "mushroom", 0,numberOfTrials);
 
         return nextTrial;
     }
