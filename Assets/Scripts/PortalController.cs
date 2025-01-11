@@ -10,6 +10,15 @@ public class PortalController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            // Get the MovingObject component
+            MovingObject movingObject = other.gameObject.GetComponent<MovingObject>();
+
+            // Stop all coroutines on the MovingObject to interrupt any ongoing movement
+            if (movingObject != null)
+            {
+                movingObject.StopAllCoroutines();
+            }
+
             // Teleport the player
             other.gameObject.transform.position = exitPosition;
 
