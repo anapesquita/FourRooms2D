@@ -1223,8 +1223,18 @@ public class GameController : MonoBehaviour
     {
         // This is used for displaying boring, white text messages to the player, such as warnings
 
-        // Display regular game messages to the player
-        switch (displayMessage)
+        if (messageTimer == null)
+        {
+            Debug.LogError("Message Timer is null!");
+            return;
+        }
+
+        try
+        {
+            Debug.Log($"Current display message: {displayMessage}");
+
+            // Display regular game messages to the player
+            switch (displayMessage)
         {
             case "noMessage":
                 textMessage = "";
@@ -1292,6 +1302,13 @@ public class GameController : MonoBehaviour
                 textMessage = "Press space-bar to remove the boulder";
                 break;
 
+        }
+
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError($"Null Reference in UpdateText: {e.Message}");
+            Debug.LogError($"Current display message: {displayMessage}");
         }
 
     }

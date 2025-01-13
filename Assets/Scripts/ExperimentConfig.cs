@@ -270,9 +270,9 @@ public class ExperimentConfig
             case "micro2D_debug_portal":            // ----Mini debugging test experiment-----
                 nDebreifQuestions = 0;
                 practiceTrials = 0 + getReadyTrial;
-                nExecutedTrials = 4;                                         // note that this is only used for the micro_debug version
+                nExecutedTrials = 64;                                         // note that this is only used for the micro_debug version
                 totalTrials = nExecutedTrials + setupAndCloseTrials + practiceTrials + nDebreifQuestions;        // accounts for the Persistent, StartScreen and Exit 'trials'
-                restFrequency = 4 + restbreakOffset;                            // Take a rest after this many normal trials
+                restFrequency = 64 + restbreakOffset;                            // Take a rest after this many normal trials
                 restbreakDuration = 5.0f;                                       // how long are the imposed rest breaks?
                 transferCounterbalance = false;
                 break;
@@ -1472,11 +1472,15 @@ public class ExperimentConfig
 
     private int AddTrainingBlock_micro(int nextTrial, int numberOfTrials)
     {
-        // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
-
-        nextTrial = SingleRewardBlock_micro(nextTrial, "mushroom", 0,numberOfTrials);
-
-        return nextTrial;
+        if (experimentVersion == "micro2D_debug_portal")
+        {
+            GeneratePortalTrialSequence(nextTrial, 64); // Generate 64 trials with new spawn system
+            return nextTrial + 64;
+        }
+        else
+        {
+            return SingleRewardBlock_micro(nextTrial, "mushroom", 0, numberOfTrials);
+        }
     }
     // ********************************************************************** //
 
@@ -3343,5 +3347,89 @@ public class ExperimentConfig
     }
 
     // ********************************************************************** //
+
+    private List<Vector3> GenerateCornerRoomSpawnPositions()
+    {
+        List<Vector3> spawnPositions = new List<Vector3>();
+
+        // Top-left room (yellow) positions
+        for (int x = -4; x <= -1; x++)
+        {
+            for (int y = 1; y <= 4; y++)
+            {
+                spawnPositions.Add(new Vector3(x, y, playerZposition));
+            }
+        }
+
+        // Bottom-right room (red) positions
+        for (int x = 1; x <= 4; x++)
+        {
+            for (int y = -4; y <= -1; y++)
+            {
+                spawnPositions.Add(new Vector3(x, y, playerZposition));
+            }
+        }
+
+        return spawnPositions;
+    }
+
+    private void GeneratePortalTrialSequence(int firstTrial, int numberOfTrials)
+    {
+        // Get all possible spawn positions
+        List<Vector3> allSpawnPositions = GenerateCornerRoomSpawnPositions();
+
+        // Shuffle the positions
+        for (int i = allSpawnPositions.Count - 1; i > 0; i--)
+        {
+            int j = rand.Next(i + 1);
+            Vector3 temp = allSpawnPositions[i];
+            allSpawnPositions[i] = allSpawnPositions[j];
+            allSpawnPositions[j] = temp;
+        }
+
+        // Set up trials
+        for (int i = 0; i < numberOfTrials; i++)
+        {
+            int trial = firstTrial + i;
+
+            // Basic trial setup
+            trialMazes[trial] = "FourRooms_mushroom";
+            doubleRewardTask[trial] = false;
+            freeForage[trial] = false;
+            maxMovementTime[trial] = 60.0f;
+            blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
+
+            // Set spawn position from shuffled list
+            Vector3 spawnPos = allSpawnPositions[i % allSpawnPositions.Count];
+            playerStartPositions[trial] = spawnPos;
+
+            // Set spawn room based on position
+            if (spawnPos.x < 0)
+            {
+                playerStartRooms[trial] = "yellow"; // top-left
+            }
+            else
+            {
+                playerStartRooms[trial] = "red"; // bottom-right
+            }
+
+            // Set fixed reward position
+            rewardPositions[trial] = new Vector3[1];
+            rewardPositions[trial][0] = new Vector3(3f, 1f, 0f);
+
+            // Other necessary trial setup
+            controlStateOrder[trial] = new string[2] { "Human", "Human" };
+            computerAgentCorrect[trial] = true;
+            hallwayFreezeTime[trial] = new float[4];
+            goalHitPauseTime[trial] = new float[4];
+            bridgeStates[trial] = new bool[4] { true, true, true, true };
+
+            for (int j = 0; j < 4; j++)
+            {
+                hallwayFreezeTime[trial][j] = ExponentialJitter(2f, 1.5f, 7f);
+                goalHitPauseTime[trial][j] = ExponentialJitter(2f, 1f, 5f);
+            }
+        }
+    }
 
 }
