@@ -1474,7 +1474,7 @@ public class ExperimentConfig
     {
         // Add a 16 trial training block to the trial list. Trials are randomised within each context, but not between contexts 
 
-        nextTrial = DoubleRewardBlock_micro(nextTrial, "mushroom", 0,numberOfTrials);
+        nextTrial = SingleRewardBlock_micro(nextTrial, "mushroom", 0,numberOfTrials);
 
         return nextTrial;
     }
@@ -1995,6 +1995,103 @@ public class ExperimentConfig
 
     // ********************************************************************** //
 
+    // ********************************************************************** //
+
+    private int SingleRewardBlock_micro(int firstTrial, string context, int covariance, int blockLength)
+    {
+        // This is for use during testing and debugging only - it DOES NOT specify a full counterbalanced trial sequence
+        // This function specifies the required trials in the block, and returns the next trial after this block
+
+        string startRoom;
+        int contextSide;
+        string[] controlType = new string[2] { "Human", "Human" };  // default: control remains human the whole time
+        bool controlCorrect = true;                                 // default: static
+
+        string[] arrayContexts = new string[blockLength];
+        string[] arrayStartRooms = new string[blockLength];
+        int[] arrayContextSides = new int[blockLength];
+        string[][] arrayControlType = new string[blockLength][];
+        bool[] arrayControlCorrect = new bool[blockLength];
+
+        for (int i = 0; i < blockLength; i++)
+        {
+            // use a different start location for each trial
+            switch (i % 4)
+            {
+                case 0:
+                    startRoom = "yellow";
+                    break;
+                case 1:
+                    startRoom = "green";
+                    break;
+                case 2:
+                    startRoom = "red";
+                    break;
+                case 3:
+                    startRoom = "blue";
+                    break;
+                default:
+                    startRoom = "error";
+                    Debug.Log("Start room specified incorrectly");
+                    break;
+            }
+
+            // switch the side of the room the rewards are located on for each context
+            if (blockLength % 2 != 0)
+            {
+                Debug.Log("Error: Odd number of trials specified per block. Specify even number for proper counterbalancing");
+            }
+
+            if (i < (blockLength / 2))
+            {
+                contextSide = 1;
+            }
+            else
+            {
+                contextSide = 2;
+            }
+
+            // Store trial setup in array, for later randomisation
+            arrayContexts[i] = context;
+            arrayStartRooms[i] = startRoom;
+            arrayContextSides[i] = contextSide;
+            arrayControlType[i] = controlType;
+            arrayControlCorrect[i] = controlCorrect;
+        }
+
+        // Randomise the trial order and save it
+        bool freeForageFLAG = false;
+        ShuffleTrialOrderAndStoreBlock_Single(firstTrial, blockLength, arrayContexts, covariance, arrayStartRooms, arrayContextSides, arrayControlType, arrayControlCorrect, freeForageFLAG);
+
+        return firstTrial + blockLength;
+    }
+
+    private void SetTrialInContext_Single(int trial, int trialInBlock, string startRoom, string context, int covariance, int contextSide, string[] controlType, bool controlCorrect, bool freeForageFLAG)
+    {
+        // This function specifies the reward covariance
+
+        // Note the variable 'contextSide' specifies whether the two rooms containing the reward will be located on the left or right of the environment
+        // e.g. if cheese context: the y/b side, vs the g/r side. if watermelon context: the y/g side, vs the b/r side.
+        // When the trial is a free foraging trial however, the 'contextSide' variable is used to specify which of the bridges is blocked, to control CW and CCW turns from the start room (since rewards are in all rooms).
+
+
+        bool trialSetCorrectly = false;
+        SetSingleRewardTrial(trial, trialInBlock, context, startRoom, "yellow", "red", contextSide, controlType, controlCorrect, freeForageFLAG);
+        trialSetCorrectly = true;
+
+            if (!trialSetCorrectly)
+        {
+            Debug.Log("Something went wrong specifying the rooms affiliated with each context!");
+        }
+    }
+
+
+
+    // ********************************************************************** //
+
+
+    // ********************************************************************** //
+
     private void SetTrialInContext(int trial, int trialInBlock, string startRoom, string context, int covariance, int contextSide, string[] controlType, bool controlCorrect, bool freeForageFLAG)
     {
         // This function specifies the reward covariance
@@ -2295,6 +2392,153 @@ public class ExperimentConfig
             if (!trialSetCorrectly)
         {
             Debug.Log("Something went wrong specifying the rooms affiliated with each context!");
+        }
+    }
+
+
+
+    // ********************************************************************** //
+
+    private void SetSingleRewardTrial(int trial, int trialInBlock, string context, string startRoom, string rewardRoom1, string rewardRoom2, int contextSide, string[] controlType, bool controlCorrect, bool freeForageFLAG)
+    {
+        bool collisionInSpawnLocations = true;
+        int iterationCounter = 0;
+        int nrooms = 4;
+        bridgeStates[trial] = new bool[4];                  // there are 4 bridges
+
+        // Check that we've inputted a valid trial number
+        if (trial <= (setupTrials - 1))
+        {
+            Debug.Log("Trial randomisation failed: invalid trial number input writing to.");
+        }
+        else
+        {
+            // Write the trial according to context and room/start locations
+            rewardTypes[trial] = context;
+
+            if (experimentVersion == "micro2D_debug_portal")
+            {
+                // Debug mode - single reward setup
+                doubleRewardTask[trial] = false;
+                rewardPositions[trial] = new Vector3[1];
+                rewardPositions[trial][0] = new Vector3(3f, 1f, 0f);
+                star1Rooms[trial] = rewardRoom1;
+                star2Rooms[trial] = rewardRoom1;  // Same as first room since single reward
+            }
+            else
+            {
+                doubleRewardTask[trial] = true;
+            }
+
+            // Generate present positions (keep this for boulder positioning)
+            GeneratePresentPositions(trial, trialInBlock, freeForageFLAG);
+
+            if (!experimentVersion.Equals("micro2D_debug_portal"))
+            {
+                // Original reward positioning logic for non-debug mode
+                if (freeForageFLAG)
+                {
+                    // rewards are positioned in all boxes
+                    trialMazes[trial] = "PrePostForage_" + rewardTypes[trial];
+                    freeForage[trial] = true;
+                    maxMovementTime[trial] = 120.0f;
+                    blankTime[trial] = ExponentialJitter(0.5f, 0.75f, 1f);
+                    hallwayFreezeTime[trial] = new float[4];
+                    goalHitPauseTime[trial] = new float[4];
+                    for (int i = 0; i < nrooms; i++)
+                    {
+                        hallwayFreezeTime[trial][i] = ExponentialJitter(2f, 1.5f, 7f);
+                        goalHitPauseTime[trial][i] = ExponentialJitter(2f, 1f, 5f);
+                    }
+
+                    star1Rooms[trial] = "";
+                    star2Rooms[trial] = "";
+
+                    for (int i = 0; i < presentPositions[trial].Length; i++)
+                    {
+                        rewardPositions[trial][i] = presentPositions[trial][i];
+                    }
+                }
+                else
+                {
+                    if (wackyColours)
+                    {
+                        trialMazes[trial] = "FourRooms_wackycolours_" + rewardTypes[trial];
+                    }
+                    else
+                    {
+                        trialMazes[trial] = "FourRooms_" + rewardTypes[trial];
+                    }
+                    freeForage[trial] = false;
+                    maxMovementTime[trial] = 60.0f;
+                    blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
+                    hallwayFreezeTime[trial] = new float[4];
+                    goalHitPauseTime[trial] = new float[4];
+                    for (int i = 0; i < nrooms; i++)
+                    {
+                        hallwayFreezeTime[trial][i] = ExponentialJitter(2f, 1.5f, 7f);
+                        goalHitPauseTime[trial][i] = ExponentialJitter(2f, 1f, 5f);
+                    }
+
+                    star1Rooms[trial] = rewardRoom1;
+                    star2Rooms[trial] = rewardRoom2;
+
+                    rewardPositions[trial][0] = RandomPresentInRoom(rewardRoom1);
+                    rewardPositions[trial][1] = RandomPresentInRoom(rewardRoom2);
+                }
+            }
+            else
+            {
+                // Debug mode - set up basic trial parameters
+                trialMazes[trial] = "FourRooms_" + rewardTypes[trial];
+                freeForage[trial] = false;
+                maxMovementTime[trial] = 60.0f;
+                blankTime[trial] = ExponentialJitter(2.5f, 1.5f, 7f);
+                hallwayFreezeTime[trial] = new float[4];
+                goalHitPauseTime[trial] = new float[4];
+                for (int i = 0; i < nrooms; i++)
+                {
+                    hallwayFreezeTime[trial][i] = ExponentialJitter(2f, 1.5f, 7f);
+                    goalHitPauseTime[trial][i] = ExponentialJitter(2f, 1f, 5f);
+                }
+            }
+
+            // Common setup for both modes
+            controlStateOrder[trial] = controlType;
+            computerAgentCorrect[trial] = controlCorrect;
+
+            for (int i = 0; i < bridgeStates[trial].Length; i++)
+            {
+                bridgeStates[trial][i] = true;
+            }
+
+            // Player start position setup
+            playerStartRooms[trial] = startRoom;
+            playerStartPositions[trial] = RandomStartPositionInRoom(startRoom);
+            iterationCounter = 0;
+
+            while (collisionInSpawnLocations)
+            {
+                iterationCounter++;
+                collisionInSpawnLocations = false;
+                playerStartPositions[trial] = RandomStartPositionInRoom(startRoom);
+
+                for (int k = 0; k < presentPositions[trial].Length; k++)
+                {
+                    if (playerStartPositions[trial] == presentPositions[trial][k])
+                    {
+                        collisionInSpawnLocations = true;
+                    }
+                }
+
+                if (iterationCounter > 40)
+                {
+                    Debug.Log("There was a while loop error: C");
+                    break;
+                }
+            }
+
+            playerStartOrientations[trial] = findStartOrientation(playerStartPositions[trial]);
         }
     }
 
@@ -2690,6 +2934,72 @@ public class ExperimentConfig
             controlCorrect = arrayControlCorrect[i];
           
             SetTrialInContext(i + firstTrial, i, startRoom, context, covariance, contextSide, controlType, controlCorrect, freeForageFLAG);
+        }
+    }
+
+
+
+    // ********************************************************************** //
+
+    public void ShuffleTrialOrderAndStoreBlock_Single(int firstTrial, int blockLength, string[] arrayContexts, int covariance, string[] arrayStartRooms, int[] arrayContextSides, string[][] arrayControlType, bool[] arrayControlCorrect, bool freeForageFLAG)
+    {
+        // This function shuffles the prospective trials from firstTrial to firstTrial+blockLength and stores them.
+        // This has been checked and works correctly :)
+
+        string startRoom;
+        string context;
+        int contextSide;
+        bool controlCorrect;
+        string[] controlType = new string[2];
+
+        bool randomiseOrder = true;
+        int n = arrayContexts.Length;
+
+        if (randomiseOrder)
+        {
+            // Perform the Fisher-Yates algorithm for shuffling array elements in place 
+            // (use same sample for each of the 3 arrays to keep order aligned across arrays)
+            for (int i = 0; i < n; i++)
+            {
+                int k = i + rand.Next(n - i); // select random index in array, less than n-i
+
+                // shuffle contexts
+                string tempContext = arrayContexts[k];
+                arrayContexts[k] = arrayContexts[i];
+                arrayContexts[i] = tempContext;
+
+                // shuffle start room
+                string tempRoom = arrayStartRooms[k];
+                arrayStartRooms[k] = arrayStartRooms[i];
+                arrayStartRooms[i] = tempRoom;
+
+                // shuffle context side
+                int tempContextSide = arrayContextSides[k];
+                arrayContextSides[k] = arrayContextSides[i];
+                arrayContextSides[i] = tempContextSide;
+
+                // shuffle control type
+                string[] tempControlType = arrayControlType[k];
+                arrayControlType[k] = arrayControlType[i];
+                arrayControlType[i] = tempControlType;
+
+                // shuffle whether computer control correct or not
+                bool tempControlCorrect = arrayControlCorrect[k];
+                arrayControlCorrect[k] = arrayControlCorrect[i];
+                arrayControlCorrect[i] = tempControlCorrect;
+
+            }
+        }
+        // Store the randomised trial order
+        for (int i = 0; i < n; i++)
+        {
+            startRoom = arrayStartRooms[i];
+            context = arrayContexts[i];
+            contextSide = arrayContextSides[i];
+            controlType = arrayControlType[i];
+            controlCorrect = arrayControlCorrect[i];
+
+            SetTrialInContext_Single(i + firstTrial, i, startRoom, context, covariance, contextSide, controlType, controlCorrect, freeForageFLAG);
         }
     }
 

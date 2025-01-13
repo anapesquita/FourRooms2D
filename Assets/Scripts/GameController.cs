@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     /// </summary>
 
     // Persistent controllers for data management and gameplay
+    private ExperimentConfig experimentConfig;
     private DataController dataController;
     public static GameController control;
     private FramesPerSecond frameRateMonitor;
@@ -206,7 +207,7 @@ public class GameController : MonoBehaviour
 
     private bool gameStarted = false;
     //private bool pauseError = false;
-    private string experimentVersion;
+    public string experimentVersion;
 
     public Vector3 portalSpawnLocation = new Vector3(3f, 2f, 0f);
 
@@ -235,10 +236,10 @@ public class GameController : MonoBehaviour
     private void Start()     // Start() executes once when object is created
     {
         dataController = FindObjectOfType<DataController>();
-        experimentVersion = dataController.GetExperimentVersion();
+        experimentConfig = new ExperimentConfig();  // Add this line
+        experimentVersion = experimentConfig.GetExperimentVersion(); // Change this line to use the new field
         source = GetComponent<AudioSource>();
         frameRateMonitor = GetComponent<FramesPerSecond>();
-
 
         // Trial invariant data
         filepath = dataController.filePath;   //this works because we actually have an instance of dataController
@@ -1516,6 +1517,7 @@ public class GameController : MonoBehaviour
     }
 
     // ********************************************************************** //
+
 
 
 }
