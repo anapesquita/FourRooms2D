@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
     public bool portalUsedBeforeTarget = false;
     public string portalUsedType = "none";
     public float totalTravelDistance = 0f;
-    private Vector3 previousPosition;
+    public Vector3 previousPosition;
 
     public Vector3 playerSpawnLocation;
     public Vector3 playerSpawnOrientation;
@@ -1560,6 +1560,11 @@ public class GameController : MonoBehaviour
         portalUsedType = "none";
         totalTravelDistance = 0f;
         previousPosition = characterSpawnLocation;
+    }
+
+    public void SetPreviousPosition(Vector3 position)
+    {
+        previousPosition = position;
     }
 
 }

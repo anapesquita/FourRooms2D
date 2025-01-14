@@ -86,13 +86,17 @@ public class PortalController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         // Teleport the player
+        Vector3 previousPosition = player.transform.position;
         player.transform.position = destination;
 
         // Update game state
         GameController.control.MoveCamera(destination);
         GameController.control.portalUsedBeforeTarget = true;
         GameController.control.portalUsedType = isSecondPortal ? "second" : "first";
-        GameController.control.UpdateTravelDistance(destination);
+
+        // Add only one meter to the total travel distance
+        GameController.control.totalTravelDistance += 1f;
+        GameController.control.SetPreviousPosition(destination);
 
         // Force a short delay before allowing exit check
         yield return new WaitForSeconds(0.2f);
