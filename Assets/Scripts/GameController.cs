@@ -868,6 +868,7 @@ public class GameController : MonoBehaviour
         questionData = currentTrialData.debriefQuestion;
         controlStateOrder = currentTrialData.controlStateOrder;
         computerAgentCorrect = currentTrialData.computerAgentCorrect;
+        InitializeTrialTracking();
 
         // Deal with the free-foraging multi-reward case, (HRS can make elegant later)
         rewardsRemaining = 1;           // default
@@ -1551,9 +1552,10 @@ public class GameController : MonoBehaviour
     }
 
     // Add this method to initialize tracking
+
     private void InitializeTrialTracking()
     {
-        characterSpawnLocation = transform.position;
+        characterSpawnLocation = playerSpawnLocation;
         portalUsedBeforeTarget = false;
         portalUsedType = "none";
         totalTravelDistance = 0f;

@@ -73,6 +73,7 @@ public class PlayerController : MovingObject
 
     void Update()
     {
+        GameController.control.UpdateTravelDistance(transform.position);  // Add this line
 
         if (GameController.control.State >= GameController.STATE_GO)
         {
