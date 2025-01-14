@@ -1548,6 +1548,7 @@ public class GameController : MonoBehaviour
     public void UpdateTravelDistance(Vector3 currentPosition)
     {
         totalTravelDistance += Vector3.Distance(previousPosition, currentPosition);
+        Debug.Log(totalTravelDistance);
         previousPosition = currentPosition;
     }
 

@@ -9554,7 +9554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalScore: {fileID: 7969312230371624803}
-  ScoreUpdate: {fileID: 7969312230943610977}
 --- !u!114 &7969312230371624803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9577,7 +9576,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 100
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9753,7 +9752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Average %
+  m_Text: 'Total:'
 --- !u!222 &7969312230721262353
 CanvasRenderer:
   m_ObjectHideFlags: 0
