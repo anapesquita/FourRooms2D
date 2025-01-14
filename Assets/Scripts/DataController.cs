@@ -315,6 +315,12 @@ public class DataController : MonoBehaviour {
         gameData.allTrialData[currentTrialNumber].debriefResponse = GameController.control.debriefResponse;
         gameData.allTrialData[currentTrialNumber].debriefResponseTime = GameController.control.debriefResponseTime;
 
+        // Add these lines inside AssembleTrialData() method where other trial data is being saved
+        gameData.allTrialData[currentTrialNumber].characterSpawnLocation = GameController.control.characterSpawnLocation;
+        gameData.allTrialData[currentTrialNumber].portalUsedBeforeTarget = GameController.control.portalUsedBeforeTarget;
+        gameData.allTrialData[currentTrialNumber].portalUsedType = GameController.control.portalUsedType;
+        gameData.allTrialData[currentTrialNumber].totalTravelDistance = GameController.control.totalTravelDistance;
+
         // Add in the frame-by-frame data (these should be synchronized)
         if (Player != null)
         {

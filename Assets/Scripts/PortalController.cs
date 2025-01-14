@@ -7,102 +7,94 @@ public class PortalController : MonoBehaviour
     private Vector3 secondPortalLocation = new Vector3(-3f, -3f, 0f);
     public bool isSecondPortal = false;
 
-    // Static variables shared between all portals
-    private static bool isTeleporting = false;
-    private static GameObject currentTeleportingPlayer = null;
-    private static PortalController destinationPortal = null;
-    private const float MINIMUM_EXIT_DISTANCE = 0.5f;
+    // Static variables for all portals
+    private static bool globalTeleportLock = false;
+    private static bool isExitingPortal = false;
+    private static float exitTimer = 0f;
+    private static float REQUIRED_EXIT_TIME = 0.5f;
+    private const float MINIMUM_EXIT_DISTANCE = 1f;
+
+    private void Update()
+    {
+        if (isExitingPortal)
+        {
+            exitTimer += Time.deltaTime;
+            if (exitTimer >= REQUIRED_EXIT_TIME)
+            {
+                isExitingPortal = false;
+                globalTeleportLock = false;
+                exitTimer = 0f;
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !isTeleporting)
+        if (other.gameObject.CompareTag("Player") && !globalTeleportLock)
         {
-            // Don't teleport if this is the destination portal of an ongoing teleport
-            if (this == destinationPortal)
-            {
-                return;
-            }
-
             StartCoroutine(TeleportPlayer(other.gameObject));
         }
     }
 
-    private IEnumerator TeleportPlayer(GameObject player)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        isTeleporting = true;
-        currentTeleportingPlayer = player;
-
-        // Get the MovingObject component
-        MovingObject movingObject = player.GetComponent<MovingObject>();
-
-        // Stop all coroutines on the MovingObject to interrupt any ongoing movement
-        if (movingObject != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            movingObject.StopAllCoroutines();
+            // Reset exit timer if player is still in any portal
+            exitTimer = 0f;
         }
-
-        // Determine teleport destination and set destination portal
-        Vector3 destination;
-        if (isSecondPortal)
-        {
-            destination = GameController.control.portalSpawnLocation;
-            destinationPortal = FindFirstPortal();
-        }
-        else
-        {
-            destination = secondPortalLocation;
-            destinationPortal = FindSecondPortal();
-        }
-
-        // Teleport the player
-        player.transform.position = destination;
-
-        // Update the camera
-        GameController.control.MoveCamera(destination);
-
-        yield return new WaitForSeconds(0.1f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // Only reset teleport state when the teleporting player exits the destination portal
-            if (this == destinationPortal && other.gameObject == currentTeleportingPlayer)
+            float distance = Vector2.Distance(transform.position, other.transform.position);
+            if (distance >= MINIMUM_EXIT_DISTANCE)
             {
-                // Calculate distance between player and portal
-                float distance = Vector2.Distance(transform.position, other.transform.position);
-
-                // Only reset if player is far enough away
-                if (distance >= MINIMUM_EXIT_DISTANCE)
-                {
-                    isTeleporting = false;
-                    currentTeleportingPlayer = null;
-                    destinationPortal = null;
-                }
+                isExitingPortal = true;
+                exitTimer = 0f;
             }
         }
     }
 
-    private PortalController FindFirstPortal()
+    private IEnumerator TeleportPlayer(GameObject player)
     {
-        PortalController[] portals = FindObjectsOfType<PortalController>();
-        foreach (PortalController portal in portals)
-        {
-            if (!portal.isSecondPortal)
-                return portal;
-        }
-        return null;
-    }
+        // Lock teleportation globally
+        globalTeleportLock = true;
+        isExitingPortal = false;
 
-    private PortalController FindSecondPortal()
-    {
-        PortalController[] portals = FindObjectsOfType<PortalController>();
-        foreach (PortalController portal in portals)
+        // Get the MovingObject component
+        MovingObject movingObject = player.GetComponent<MovingObject>();
+        if (movingObject != null)
         {
-            if (portal.isSecondPortal)
-                return portal;
+            movingObject.StopAllCoroutines();
         }
-        return null;
+
+        // Determine teleport destination
+        Vector3 destination;
+        if (isSecondPortal)
+        {
+            destination = GameController.control.portalSpawnLocation;
+        }
+        else
+        {
+            destination = secondPortalLocation;
+        }
+
+        // Short delay before teleport
+        yield return new WaitForSeconds(0.1f);
+
+        // Teleport the player
+        player.transform.position = destination;
+
+        // Update game state
+        GameController.control.MoveCamera(destination);
+        GameController.control.portalUsedBeforeTarget = true;
+        GameController.control.portalUsedType = isSecondPortal ? "second" : "first";
+        GameController.control.UpdateTravelDistance(destination);
+
+        // Force a short delay before allowing exit check
+        yield return new WaitForSeconds(0.2f);
     }
 }

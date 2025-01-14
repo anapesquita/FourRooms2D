@@ -38,6 +38,12 @@ public class GameController : MonoBehaviour
     private string currentMapName;
     private string currentSceneName;
 
+    public Vector3 characterSpawnLocation;
+    public bool portalUsedBeforeTarget = false;
+    public string portalUsedType = "none";
+    public float totalTravelDistance = 0f;
+    private Vector3 previousPosition;
+
     public Vector3 playerSpawnLocation;
     public Vector3 playerSpawnOrientation;
     public Vector3[] rewardSpawnLocations;
@@ -210,6 +216,7 @@ public class GameController : MonoBehaviour
     public string experimentVersion;
 
     public Vector3 portalSpawnLocation = new Vector3(3f, 2f, 0f);
+
 
 
 
@@ -1535,6 +1542,22 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
+    // Add this method to initialize tracking at trial start
+    // Add this method to update distance
+    public void UpdateTravelDistance(Vector3 currentPosition)
+    {
+        totalTravelDistance += Vector3.Distance(previousPosition, currentPosition);
+        previousPosition = currentPosition;
+    }
 
+    // Add this method to initialize tracking
+    private void InitializeTrialTracking()
+    {
+        characterSpawnLocation = transform.position;
+        portalUsedBeforeTarget = false;
+        portalUsedType = "none";
+        totalTravelDistance = 0f;
+        previousPosition = characterSpawnLocation;
+    }
 
 }
