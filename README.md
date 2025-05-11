@@ -1,19 +1,61 @@
 # FourRooms2D
-##### Unity Editor Version: 2018.3.1f1
 
-This is a 2D version of the FourRooms Unity project, created for running experiments in an MRI scanner.
-The gameplay is taken from my 3D repo FourRooms, with minor changes accounting for player control, the 3D nature of pickups and other gameobject interactions.
-
+A Unity-based experimental platform for studying spatial navigation, reinforcement learning, and decision-making behaviors.
 
 ## Overview
 
-- You will need to edit filepath.path in filepath.cs script for an appropriate  location for the log file.
+FourRooms2D is a configurable experimental environment featuring a four-room grid layout where participants navigate to find rewards under different experimental conditions. The platform is designed for researchers studying spatial cognition, learning, memory processes, and decision-making.
 
-- To run an experiment, you must start the game from the persistent scene, 'Persistent'
-- The gameplay is controlled *almost* entirely from the singleton GameController.cs. There is some gameplay that is local to short scripts attached to objects in different scenes, but where possible these scripts trigger functions within GameController.cs to keep gameplay centralised and readable. A finite-state-machine tracks within-trial changes to the game state.
+## Task Variants
 
-- The data management is operated through DataController.cs. Any configuration file that needs to be read or loaded, any online changes to trial list sequencing, and any saving of the data (to either the Summerfield Lab webserver or to a location on your local computer), is performed here. There is one instance of DataController that persists between scenes and is fetched/found by other smaller scripts when needed - so it is effectively a singleton but implemented slightly differently.
+The project includes several experimental paradigms:
 
-- The experiment configuration is controlled through the script ExperimentConfig.cs, which specifies the trial sequencing, randomisation, and experiment-specific controlled variables e.g. the duration and frequency of restbreaks.
+### nav2D_probablistic
+- Implements probabilistic reinforcement learning in spatial navigation
+- Features rewards that appear with varying probabilities in different rooms
+- Structured in blocks with 16 trials per block, 3 blocks per run
+- Measures adaptive learning and probability inference
 
-- When playing the game, movements are controlled with the arrow keys. The space-bar is used to lift boulders.
+### nav2D_reversal_2cues
+- Focuses on reversal learning with multiple visual cues
+- Tests cognitive flexibility through mid-experiment reversals of reward associations
+- Uses 32-trial training blocks followed by 16-trial testing blocks
+- Measures adaptation to changing reward contingencies
+
+### nav2D_separation
+- Examines pattern separation and completion in spatial contexts
+- Tests ability to distinguish between similar reward locations
+- Uses multiple reward types (pineapple, banana, mushroom, avocado)
+- Block structure: 8 trials per reward type, 4 reward types
+
+### micro2D_debug_portal
+- Specialized variant implementing teleportation portals between rooms
+- Tests path integration and spatial updating with teleportation
+- Features fixed portal locations and consistent reward positions
+- Measures navigation efficiency and teleportation effects
+
+## Key Features
+
+- Four-room grid environment with configurable navigation parameters
+- Multiple reward types and presentation conditions
+- Detailed movement tracking and response time measurement
+- Customizable experimental parameters (timing, jitter, block structure)
+- JSON-based data storage with comprehensive behavioral metrics
+- Movement visualizations and replay capabilities
+
+## Data Collection
+
+All task variants record standardized data including:
+- Timestamped player coordinates
+- State transitions and event markers
+- Success/error flags and response times
+- Score information and reward collection patterns
+- Room transitions and navigation paths
+
+## Requirements
+
+- Unity 2020.3 or newer
+- Windows 10/11, macOS, or Linux
+- Recommended: 8GB RAM, dedicated graphics
+- Optional: Python 3.7+ (for data analysis scripts)
+
