@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     /// </summary>
 
     // Persistent controllers for data management and gameplay
+    private ExperimentConfig experimentConfig;
     private DataController dataController;
     public static GameController control;
     private FramesPerSecond frameRateMonitor;
@@ -36,6 +37,12 @@ public class GameController : MonoBehaviour
     private TrialData currentTrialData;
     private string currentMapName;
     private string currentSceneName;
+
+    public Vector3 characterSpawnLocation;
+    public bool portalUsedBeforeTarget = false;
+    public string portalUsedType = "none";
+    public float totalTravelDistance = 0f;
+    public Vector3 previousPosition;
 
     public Vector3 playerSpawnLocation;
     public Vector3 playerSpawnOrientation;
@@ -206,7 +213,11 @@ public class GameController : MonoBehaviour
 
     private bool gameStarted = false;
     //private bool pauseError = false;
-    private string experimentVersion;  
+    public string experimentVersion;
+
+    public Vector3 portalSpawnLocation = new Vector3(3f, 2f, 0f);
+
+
 
 
     // ********************************************************************** //
@@ -232,10 +243,10 @@ public class GameController : MonoBehaviour
     private void Start()     // Start() executes once when object is created
     {
         dataController = FindObjectOfType<DataController>();
-        experimentVersion = dataController.GetExperimentVersion();
+        experimentConfig = new ExperimentConfig();  // Add this line
+        experimentVersion = experimentConfig.GetExperimentVersion(); // Change this line to use the new field
         source = GetComponent<AudioSource>();
         frameRateMonitor = GetComponent<FramesPerSecond>();
-
 
         // Trial invariant data
         filepath = dataController.filePath;   //this works because we actually have an instance of dataController
@@ -857,6 +868,7 @@ public class GameController : MonoBehaviour
         questionData = currentTrialData.debriefQuestion;
         controlStateOrder = currentTrialData.controlStateOrder;
         computerAgentCorrect = currentTrialData.computerAgentCorrect;
+        InitializeTrialTracking();
 
         // Deal with the free-foraging multi-reward case, (HRS can make elegant later)
         rewardsRemaining = 1;           // default
@@ -1219,8 +1231,18 @@ public class GameController : MonoBehaviour
     {
         // This is used for displaying boring, white text messages to the player, such as warnings
 
-        // Display regular game messages to the player
-        switch (displayMessage)
+        if (messageTimer == null)
+        {
+            Debug.LogError("Message Timer is null!");
+            return;
+        }
+
+        try
+        {
+            Debug.Log($"Current display message: {displayMessage}");
+
+            // Display regular game messages to the player
+            switch (displayMessage)
         {
             case "noMessage":
                 textMessage = "";
@@ -1288,6 +1310,13 @@ public class GameController : MonoBehaviour
                 textMessage = "Press space-bar to remove the boulder";
                 break;
 
+        }
+
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError($"Null Reference in UpdateText: {e.Message}");
+            Debug.LogError($"Current display message: {displayMessage}");
         }
 
     }
@@ -1514,5 +1543,29 @@ public class GameController : MonoBehaviour
 
     // ********************************************************************** //
 
+    // Add this method to initialize tracking at trial start
+    // Add this method to update distance
+    public void UpdateTravelDistance(Vector3 currentPosition)
+    {
+        totalTravelDistance += Vector3.Distance(previousPosition, currentPosition);
+        Debug.Log(totalTravelDistance);
+        previousPosition = currentPosition;
+    }
+
+    // Add this method to initialize tracking
+
+    private void InitializeTrialTracking()
+    {
+        characterSpawnLocation = playerSpawnLocation;
+        portalUsedBeforeTarget = false;
+        portalUsedType = "none";
+        totalTravelDistance = 0f;
+        previousPosition = characterSpawnLocation;
+    }
+
+    public void SetPreviousPosition(Vector3 position)
+    {
+        previousPosition = position;
+    }
 
 }

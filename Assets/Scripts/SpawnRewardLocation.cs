@@ -13,11 +13,19 @@ public class SpawnRewardLocation : MonoBehaviour {
     public int rewardIndex=0;
 
 
-    void Start () 
+    void Start()
     {
-        // Load the star spawn location from the configured datafile
-        transform.position = GameController.control.rewardSpawnLocations[rewardIndex];
-        //Debug.Log("Reward spawned at: " + transform.position.x + ", " + transform.position.y + ", " + transform.position.z);
+        if (GameController.control.experimentVersion == "micro2D_debug_portal")
+        {
+            // Set fixed spawn position for debug version
+            transform.position = new Vector3(3f, 4f, 0f);
+            Debug.Log("Debug portal mode: Spawning reward at fixed position (3,4)");
+        }
+        else
+        {
+            // Use original dynamic spawn system for all other versions
+            transform.position = GameController.control.rewardSpawnLocations[rewardIndex];
+            Debug.Log($"Normal mode: Spawning reward at dynamic position {transform.position}");
+        }
     }
-
 }

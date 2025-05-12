@@ -8,6 +8,7 @@ TagManager:
   - reward
   - bridge
   - Star2Panel
+  - portal
   layers:
   - Default
   - TransparentFX

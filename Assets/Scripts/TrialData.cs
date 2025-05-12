@@ -75,4 +75,9 @@ public class TrialData
     public string keyChoice = "";  // Will store "silver" or "gold"
     public bool wasKeyChoiceSuccessful = false;  // Tracks if the chosen key resulted in doubled points
 
+    public Vector3 characterSpawnLocation;     // Where the character actually spawned
+    public bool portalUsedBeforeTarget;        // Whether any portal was used before reaching target
+    public string portalUsedType = "none";     // Which portal was used ("none", "first", or "second")
+    public float totalTravelDistance = 0f;     // Total distance traveled from spawn to target
+
 }
